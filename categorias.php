@@ -9,8 +9,9 @@
     </head>
     <body>
 
-    <section id=".bannerCat" >
-        <h1>Prueba de conexión</h1>
+    <section class="bannerCat" >
+        <h1>No muestra nada</h1>
+<img src="img/ropa.jpg" alt="Aqui deberia ir una imagen " height="500" weight="500" >
     </section>
 <?php
     

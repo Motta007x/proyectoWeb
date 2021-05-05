@@ -17,12 +17,11 @@
     background-position: center;
     height: 100vh;
 }
-.bannerCat {
-    background: linear-gradient(rgba(0,0,0,0.2), #0084ff), url(../img/ropa.jpg);
-    background-size:cover;
-    background-position: center;
-    height: 100vh;
+
+.bannerCat{
+ margin: auto;
 }
+
 .logo {
     width: 150px;
     position: fixed;
