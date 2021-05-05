@@ -7,12 +7,26 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Kaushan+Script&family=Secular+One&display=swap" rel="stylesheet">
     </head>
-    <body>
+    <body class="categorias">
 
-    <section class="bannerCat" >
-        <h1>No muestra nada</h1>
-<img src="img/ropa.jpg" alt="Aqui deberia ir una imagen " height="500" weight="500" >
-    </section>
+<h1>aqui va el otro jeje</h1>
+    <div class="bannercat">
+        <div class="contenido-bannercat">
+            <h2>Todo lo que necesitas al alcance </h2>
+            <h2> de un click</h2>
+        </div>
+    </div>
+
+    <div class="widgets">
+    
+    </div>
+   
+   
+   
+
+
+
+
 <?php
     
     ?>
