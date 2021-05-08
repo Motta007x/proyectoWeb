@@ -7,10 +7,13 @@
     <meta name="viewport" content="width =device-width, initial-scale =1" <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Kaushan+Script&family=Secular+One&display=swap" rel="stylesheet">
 </head>
+     <?php
+     include_once("cabecera.html");
+     ?>
 
-<body class="index-categorias">
+<body class="body-categorias">
 
-    <div class="bannercat">
+    <div id="bannercategorias">
         <div class="contenido-bannercat">
             <h2>Todo lo que necesitas al alcance </h2>
             <h2> de un click</h2>
@@ -22,9 +25,9 @@
 
 
             <div class="widgets">
-                <a href="#">
+                <a href="camisas.php">
                     <img src="img/camisa.png" width="100" height="100">
-                    <p>Camisetas</p>
+                    <p>Camisas</p>
                 </a>
             </div>
 
@@ -42,7 +45,7 @@
                 </a>
             </div>
             <div class="widgets">
-                <a href="#">
+                <a href="tenis.php">
                     <img src="img/shoes.png" alt="" width="100" height="100">
                     <p>Tenis</p>
                 </a>
@@ -88,6 +91,8 @@
       </div>
       </section>
 </body>
-
+<?php
+     include_once("footer.html");
+     ?>
 
 </html>
