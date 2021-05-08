@@ -188,11 +188,11 @@ span {
   }
 /* css de las categorias */
 
-.index-categorias{
-    background-color: #ffffff;
+.body-categorias{
+    background-color: #f5d9d9;
     margin: auto;
 }
-.bannercat {
+#bannercategorias{
     height: 350px;
      margin-left: auto;
      margin-right: auto;
@@ -200,6 +200,26 @@ span {
 
     margin-bottom: 2rem;
     position: relative;
+    
+}
+#bannertenis{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondotenis.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
+}
+
+#bannercamisas{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondocamisas.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
 }
 .contenido-bannercat {
     background-color: rgba(0, 0, 0, 0.212);
@@ -253,7 +273,7 @@ span {
     padding: .3rem;
 }
 .widgets:hover{
-    background-color: #1736c0f3;
+    background-color: #24252a;
 }
 
 .display-categorias{
@@ -301,4 +321,8 @@ margin-bottom: 30px;
      75%{ margin-left: -300%;}
      100%{ margin-left: -300%;}
      
+ }
+ .texto{
+     margin: auto;
+     text-align: center;
  }
