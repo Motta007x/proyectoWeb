@@ -202,6 +202,15 @@ span {
     position: relative;
     
 }
+#bannercamisas{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondocamisas.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
+}
 #bannertenis{
     height: 350px;
      margin-left: auto;
@@ -212,17 +221,55 @@ span {
     margin-top: 1px;
 }
 
-#bannercamisas{
+
+#bannerzapatos{
     height: 350px;
      margin-left: auto;
      margin-right: auto;
-     background-image: url(../img/fondocamisas.jpg);
+     background-image: url(../img/fondozapatos.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
+}
+#bannerpantalones{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondopantalones.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
+}
+#bannersudaderas{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondosudaderas.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
+}
+#bannerrelojes{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondorelojes.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
+}
+#bannergafas{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondogafas.jpg);
     margin-bottom: 2rem;
     position: relative;
     margin-top: 1px;
 }
 .contenido-bannercat {
-    background-color: rgba(0, 0, 0, 0.212);
+    background-color: rgba(0, 0, 0, 0.445);
+    background: linear-gradient(rgba(0,0,0,0.2), #551f1dd5);
     position: absolute;
     width: 100%;
     height: 100%;

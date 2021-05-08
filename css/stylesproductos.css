@@ -43,27 +43,29 @@ img {
 
 /*===== CARD =====*/
 .container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: var(--dark-color-lighten);
+  padding: 3rem;
 }
+.display-productos{
+  display: grid;
+ grid-template-columns: repeat(4,1fr);
 
+}
 .card {
-  width: 265px;
-  height: 350px;
+  width: 250px;
+  height: 400px;
   background-color: var(--dark-color);
   border-radius: 1rem;
   padding: 2rem 2rem 0;
   color: var(--white-color);
   overflow-y: hidden;
+  margin:2rem;
 }
 
 .card__imag {
-  position: absolute;
-  width: 50px;
+  width: 180px;
   height: 180px;
+  position: absolute;
   filter: drop-shadow(5px 10px 15px rgba(8,9,13,.4));
 }
 
@@ -75,21 +77,23 @@ img {
 .card__title {
   font-size: var(--h1-font-size);
   color: var(--first-color);
-  margin-bottom: .3rem;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
 }
 
 .card__preci {
   display: inline-block;
   font-size: var(--h2-font-size);
   font-weight: 500;
-  margin-bottom: 1.25rem;
+  margin-bottom: .6rem;
 }
 
 .card__description {
   font-size: var(--small-font-size);
   text-align: initial;
-  margin-bottom: 1rem;
+  margin-bottom: .6rem;
   opacity: 0;
+  line-height:20px;
 }
 
 .card__button {
@@ -131,7 +135,7 @@ img {
 }
 
 .card:hover .card__preci {
-  transform: translateX(-6.8rem);
+  transform: translateX(-5.8rem);
 }
 
 .card:hover .card__description, 
