@@ -22,7 +22,7 @@ include_once("cabecera.html");
     <div class="texto">
         <h2>Manten tu Presencia</h2>
     </div>
-    <div class="container">
+    <section class="container">
         <div class="display-productos">
             <div class="card">
                 <img src="img/cinturonnegro.jpg" alt="" class="card__imag">
@@ -107,7 +107,7 @@ include_once("cabecera.html");
             
       
         </div>
-    </div>
+    </section>
 
 </body>
 

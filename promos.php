@@ -15,7 +15,7 @@
     <div class="texto">
         <h2>Promociones</h2>
     </div>
-    <div class="container">
+    <section class="container">
         <div class="display-productos">
             <div class="card">
                 <img src="img/camisas.jpg" alt="" class="card__img">
@@ -73,7 +73,7 @@
         </div>
 
 
-    </div>
+    </section>
 </body>
 
 </html>

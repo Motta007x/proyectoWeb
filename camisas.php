@@ -23,7 +23,7 @@ include_once("cabecera.html");
     <div class="texto">
         <h2>Dale estilo a tu vida y deja que lo dem&aacutes fluya</h2>
     </div>
-    <div class="container">
+    <section class="container">
         <div class="display-productos">
             <div class="card">
                 <img src="img/camiseta_nike.png" alt="" class="card__imag">
@@ -120,7 +120,7 @@ include_once("cabecera.html");
 
 
         </div>
-    </div>
+    </section>
 
 </body>
 
