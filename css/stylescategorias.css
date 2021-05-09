@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Secular One', sans-serif;
+}
+
+.body-categorias{
+    background-color: #f5d9d9;
+    margin: auto;
+}
+#bannercategorias{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+    background-image: url(../img/fondocategorias.jpg);
+
+    margin-bottom: 2rem;
+    position: relative;
+    
+}
+#bannercamisas{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondocamisas.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
+}
+#bannertenis{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondotenis.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
+}
+
+
+#bannerzapatos{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondozapatos.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
+}
+#bannerpantalones{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondopantalones.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
+}
+#bannersudaderas{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondosudaderas.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
+}
+#bannerrelojes{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondorelojes.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
+}
+#bannergafas{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondogafas.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
+}
+#bannercinturones{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondocinturones.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
+}
+.contenido-bannercat {
+    background-color: rgba(0, 0, 0, 0.445);
+    background: linear-gradient(rgba(0,0,0,0.2), #551f1dd5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+.contenido-bannercat h2 {
+    color:#ffffff;
+    text-shadow: 1px 2px rgb(0, 0, 0);
+    font-size: 3rem;
+    font-weight: lighter;
+}
+
+.categorias{
+    margin: auto;
+    width: 1000px;
+    margin-bottom: 20px;
+    background-color: rgba(0, 255, 255, 0.198);
+}
+.widgets{
+    background-color: #528dfb;
+    margin: auto;
+    margin-bottom: 1rem;
+    width: 230px;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.644);
+}
+.widgets a{
+    padding: .2rem;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    text-decoration: none;
+}
+.widgets a p{
+    margin: auto;
+    padding: .5rem;
+    color: #ffffff;
+    font-weight:400;
+}
+
+.widgets a img{
+    margin: auto;
+    padding: .3rem;
+}
+.widgets:hover{
+    background-color: #24252a;
+}
+
+.display-categorias{
+    display: grid;
+   grid-template-columns: 250px 250px 250px 250px;
+
+   grid-template-rows: 140px 140px;
+}
+
+/* carrusel */
+.contenedor-slide{
+    margin: auto;
+max-width: 1100px;
+background-color:#3aa7e7;
+box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.493);
+padding: 20px;
+margin-bottom: 30px;
+}
+.slider{
+    width: 95%; 
+    margin: auto;
+    overflow: hidden;
+ }
+ .slider ul{
+     display: flex;
+ padding: 0;
+ width: 400%;
+ animation: cambio 15s infinite;
+ animation-direction: alternate;
+ }
+ .slider li{
+     width: 100%;
+     list-style: none;
+ }
+ .slider img{
+     width: 100%;
+ }
+ @keyframes cambio{
+     0%{ margin-left: 0;}
+     20%{ margin-left: 0;}
+     25%{ margin-left: -100%;}
+     45%{ margin-left: -100%;}
+     50%{ margin-left: -200%;}
+     70%{ margin-left: -200%;}
+     75%{ margin-left: -300%;}
+     100%{ margin-left: -300%;}
+     
+ }
+ .texto{
+     margin: auto;
+     text-align: center;
+ }

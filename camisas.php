@@ -3,7 +3,7 @@
 
 <head>
     <title> Camisas</title>
-    <link rel="stylesheet" href="css/styles.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/stylescategorias.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/stylesproductos.css?v=<?php echo time(); ?>">
     <meta name="viewport" content="width =device-width, initial-scale =1" <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Kaushan+Script&family=Secular+One&display=swap" rel="stylesheet">
@@ -16,12 +16,12 @@ include_once("cabecera.html");
 
     <div id="bannercamisas">
         <div class="contenido-bannercat">
-            <h2>Muestra Quién Eres</h2>
+            <h2>Muestra Qui&eacuten Eres</h2>
             <h2>Usa lo que Mereces</h2>
         </div>
     </div>
     <div class="texto">
-        <h2>Dale estilo a tu vida y deja que lo demás fluya</h2>
+        <h2>Dale estilo a tu vida y deja que lo dem&aacutes fluya</h2>
     </div>
     <div class="container">
         <div class="display-productos">
