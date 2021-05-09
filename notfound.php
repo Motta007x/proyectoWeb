@@ -11,9 +11,9 @@
     include_once("cabecera.html");
     ?>
 <body>
-    <div class="construcion">
+    <section class="construcion">
 
-    </div>
+    </section>
 </body>
 <?php
      include_once("footer.html");

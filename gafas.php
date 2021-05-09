@@ -16,13 +16,13 @@ include_once("cabecera.html");
 
     <div id="bannergafas">
         <div class="contenido-bannercat">
-        <h2>Destinadas a Ocupar su Lugar D&iacutea tras D&iacutea</h2>
+            <h2>Destinadas a Ocupar su Lugar D&iacutea tras D&iacutea</h2>
         </div>
     </div>
     <div class="texto">
         <h2>Un Supremo Toque de Elegancia Enigm&aacutetica</h2>
     </div>
-    <div class="container">
+    <section class="container">
         <div class="display-productos">
             <div class="card">
                 <img src="img/gafanegra.jpg" alt="" class="card__imag">
@@ -104,10 +104,10 @@ include_once("cabecera.html");
                     <a href="#" class="card__button">Comprar ahora</a>
                 </div>
             </div>
-            
-      
+
+
         </div>
-    </div>
+    </section>
 
 </body>
 

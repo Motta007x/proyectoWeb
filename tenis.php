@@ -13,9 +13,6 @@ include_once("cabecera.html");
 ?>
 
 <body class="body-categorias">
-
-
-
     <div id="bannertenis">
         <div class="contenido-bannercat">
             <h2>Moda, Calidad</h2>
@@ -25,7 +22,7 @@ include_once("cabecera.html");
     <div class="texto">
         <h2>Lo que necesitas y mereces</h2>
     </div>
-    <div class="container">
+    <section class="container">
 
         <div class="display-productos">
             <div class="card">
@@ -115,7 +112,7 @@ include_once("cabecera.html");
             </div>
 
         </div>
-    </div>
+    </section>
 
 </body>
 

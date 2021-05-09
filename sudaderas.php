@@ -22,7 +22,7 @@ include_once("cabecera.html");
     <div class="texto">
         <h2>No importa tu estilo</h2>
     </div>
-    <div class="container">
+    <section class="container">
         <div class="display-productos">
             <div class="card">
                 <img src="img/sudaderanegra.jpg" alt="" class="card__imag">
@@ -106,7 +106,7 @@ include_once("cabecera.html");
             </div>
       
         </div>
-    </div>
+    </section>
 
 </body>
 
