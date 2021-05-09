@@ -3,7 +3,7 @@
 
 <head>
     <title> Categorias </title>
-    <link rel="stylesheet" href="css/styles.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/stylescategorias.css?v=<?php echo time(); ?>">
     <meta name="viewport" content="width =device-width, initial-scale =1" <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Kaushan+Script&family=Secular+One&display=swap" rel="stylesheet">
 </head>
@@ -56,7 +56,6 @@
                     <p>Zapatos</p>
                 </a>
             </div>
-
             <div class="widgets">
                 <a href="relojes.php">
                     <img src="img/reloj.png" alt="" width="100" height="100">
@@ -65,14 +64,14 @@
             </div>
 
             <div class="widgets">
-                <a href="#">
+                <a href="gafas.php">
                     <img src="img/gafas.png" alt="" width="100" height="100">
                     <p>Gafas</p>
                 </a>
             </div>
 
             <div class="widgets">
-                <a href="#">
+                <a href="cinturones.php">
                     <img src="img/cinturon.png" alt="" width="100" height="100">
                     <p>Cinturones</p>
                 </a>
