@@ -1,6 +1,5 @@
 <?php 
-
-include 'config.php';
+include 'modelo/config.php';
 
 error_reporting(0);
 
@@ -81,7 +80,7 @@ if (isset($_POST['submit'])) {
 			<div class="input-group">
 				<button name="submit" class="btn">Registrar</button>
 			</div>
-			<p class="login-register-text">¿Tienes una cuenta? <a href="index.php">Inicia aquí</a>.</p>
+			<p class="login-register-text">¿Tienes una cuenta? <a href="login.php">Inicia aquí</a>.</p>
 		</form>
 	</div>
 </body>
