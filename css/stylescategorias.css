@@ -17,7 +17,9 @@
     margin-bottom: 2rem;
     position: relative;
     
+    
 }
+
 #bannercamisas{
     height: 350px;
      margin-left: auto;
@@ -36,7 +38,15 @@
     position: relative;
     margin-top: 1px;
 }
-
+#bannerwhy{
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(../img/why.jpg);
+   margin-bottom: 2rem;
+   position: relative;
+   margin-top: 1px;  
+}
 
 #bannerzapatos{
     height: 350px;
@@ -79,6 +89,15 @@
      margin-left: auto;
      margin-right: auto;
      background-image: url(../img/fondogafas.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 1px;
+}
+#bannersoporte{
+    height: 350px;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url(../img/fondosoporte.jpg);
     margin-bottom: 2rem;
     position: relative;
     margin-top: 1px;
@@ -198,3 +217,31 @@ margin-bottom: 30px;
      margin: auto;
      text-align: center;
  }
+
+ p.estilo-3 {
+    border: hsl(207, 50%, 45%) 5px dashed;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 20px;
+    background-color: hsl(207, 100%, 25%);
+    color: white;
+  }
+  p.estilo-1 {
+    border: hsl(17, 100%, 25%) 20px solid;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin-right: 50%;
+    padding: 10px;
+    background-color: hsl(17, 50%, 45%);
+    color: white;
+  }
+
+  p.estilo-2 {
+    border: hsl(34, 100%, 25%) 15px solid;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-left: 50%;
+    padding: 5px;
+    background-color: hsl(34, 50%, 45%);
+    color: white;
+  }
