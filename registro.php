@@ -1,5 +1,5 @@
 <?php 
-//include 'modelo/config.php';
+include 'modelo/config.php';
 
 error_reporting(0);
 

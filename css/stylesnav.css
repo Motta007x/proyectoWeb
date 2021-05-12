@@ -11,9 +11,19 @@
     padding: 30px 10%;
     background-color: #24252a;
   }
+  .headeradmin{
+    display: flex;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #24252a;
+  }
   
   .logo {
     cursor: pointer;
+  }
+  .logoadmin {
+    cursor: pointer;
+    margin: auto;
   }
   
   .nav__links a,
