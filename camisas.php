@@ -25,100 +25,25 @@ include_once("cabecera.html");
     </div>
     <section class="container">
         <div class="display-productos">
-            <div class="card">
-                <img src="img/camiseta_nike.png" alt="" class="card__imag">
+            <?php
+            include("modelo/config.php");
+            $query = "SELECT * FROM producto WHERE id_categoria=1 ";
+            $resultado = $conexion->query($query);
+            while ($row = $resultado->fetch_assoc()) {
+            ?>
+              <div class="card">
+                <img src="data:image/jpg;base64, <?php echo base64_encode($row['imagen']);?> " alt="" class="card__imag">
                 <div class="card__data">
-                    <h1 class="card__title">Camiseta Nike Negra </h1>
-                    <span class="card__preci">$1200</span>
-                    <p class="card__description">Camiseta Nylon negra franja blanca.</p>
-                    <p class="card__description">Modelo: CNN1.</p>
+                    <h1 class="card__title"> <?php echo ($row['nombre']);?></h1>
+                    <span class="card__preci">$<?php echo ($row['precio']);?></span>
+                    <p class="card__description">Modelo: <?php echo ($row['modelo']);?></p>
+                   
                     <a href="#" class="card__button">Comprar ahora</a>
                 </div>
             </div>
-
-            <div class="card">
-                <img src="img/camiseta_nike.png" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Camiseta Nike Negra </h1>
-                    <span class="card__preci">$1200</span>
-                    <p class="card__description">Camiseta Nylon negra franja blanca.</p>
-                    <p class="card__description">Modelo: CNN1.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/camiseta_nike.png" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Camiseta Nike Negra </h1>
-                    <span class="card__preci">$1200</span>
-                    <p class="card__description">Camiseta Nylon negra franja blanca.</p>
-                    <p class="card__description">Modelo: CNN1.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-
-
-            <div class="card">
-                <img src="img/camiseta_nike.png" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Camiseta Nike Negra </h1>
-                    <span class="card__preci">$1200</span>
-                    <p class="card__description">Camiseta Nylon negra franja blanca.</p>
-                    <p class="card__description">Modelo: CNN1.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-
-
-            <div class="card">
-                <img src="img/camiseta_nike.png" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Camiseta Nike Negra </h1>
-                    <span class="card__preci">$1200</span>
-                    <p class="card__description">Camiseta Nylon negra franja blanca.</p>
-                    <p class="card__description">Modelo: CNN1.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-
-
-            <div class="card">
-                <img src="img/camiseta_nike.png" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Camiseta Nike Negra </h1>
-                    <span class="card__preci">$1200</span>
-                    <p class="card__description">Camiseta Nylon negra franja blanca.</p>
-                    <p class="card__description">Modelo: CNN1.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-
-
-            <div class="card">
-                <img src="img/camiseta_nike.png" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Camiseta Nike Negra </h1>
-                    <span class="card__preci">$1200</span>
-                    <p class="card__description">Camiseta Nylon negra franja blanca.</p>
-                    <p class="card__description">Modelo: CNN1.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-
-
-            <div class="card">
-                <img src="img/camiseta_nike.png" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Camiseta Nike Negra </h1>
-                    <span class="card__preci">$1200</span>
-                    <p class="card__description">Camiseta Nylon negra franja blanca.</p>
-                    <p class="card__description">Modelo: CNN1.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-
-
+            <?php
+            }
+            ?>
         </div>
     </section>
 

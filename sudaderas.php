@@ -24,87 +24,25 @@ include_once("cabecera.html");
     </div>
     <section class="container">
         <div class="display-productos">
-            <div class="card">
-                <img src="img/sudaderanegra.jpg" alt="" class="card__imag">
+            <?php
+            include("modelo/config.php");
+            $query = "SELECT * FROM producto WHERE id_categoria= 3";
+            $resultado = $conexion->query($query);
+            while ($row = $resultado->fetch_assoc()) {
+            ?>
+              <div class="card">
+                <img src="data:image/jpg;base64, <?php echo base64_encode($row['imagen']);?> " alt="" class="card__imag">
                 <div class="card__data">
-                    <h1 class="card__title">Sudadera Negra Francia</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Sudadera Negra Francia Algodón</p>
-                    <p class="card__description">Modelo:SNF01.</p>
+                    <h1 class="card__title"> <?php echo ($row['nombre']);?></h1>
+                    <span class="card__preci">$<?php echo ($row['precio']);?></span>
+                    <p class="card__description">Modelo: <?php echo ($row['modelo']);?></p>
+                   
                     <a href="#" class="card__button">Comprar ahora</a>
                 </div>
             </div>
-            <div class="card">
-                <img src="img/sudaderanegra.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Sudadera Negra Francia</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Sudadera Negra Francia Algodón</p>
-                    <p class="card__description">Modelo:SNF01.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/sudaderanegra.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Sudadera Negra Francia</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Sudadera Negra Francia Algodón</p>
-                    <p class="card__description">Modelo:SNF01.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/sudaderanegra.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Sudadera Negra Francia</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Sudadera Negra Francia Algodón</p>
-                    <p class="card__description">Modelo:SNF01.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/sudaderanegra.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Sudadera Negra Francia</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Sudadera Negra Francia Algodón</p>
-                    <p class="card__description">Modelo:SNF01.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/sudaderanegra.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Sudadera Negra Francia</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Sudadera Negra Francia Algodón</p>
-                    <p class="card__description">Modelo:SNF01.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/sudaderanegra.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Sudadera Negra Francia</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Sudadera Negra Francia Algodón</p>
-                    <p class="card__description">Modelo:SNF01.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/sudaderanegra.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Sudadera Negra Francia</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Sudadera Negra Francia Algodón</p>
-                    <p class="card__description">Modelo:SNF01.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-      
+            <?php
+            }
+            ?>
         </div>
     </section>
 

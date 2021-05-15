@@ -23,94 +23,26 @@ include_once("cabecera.html");
         <h2>Lo que necesitas y mereces</h2>
     </div>
     <section class="container">
-
         <div class="display-productos">
-            <div class="card">
-                <img src="img/tenis_adidas.jpg" alt="" class="card__imag">
+            <?php
+            include("modelo/config.php");
+            $query = "SELECT * FROM producto WHERE id_categoria= 4";
+            $resultado = $conexion->query($query);
+            while ($row = $resultado->fetch_assoc()) {
+            ?>
+              <div class="card">
+                <img src="data:image/jpg;base64, <?php echo base64_encode($row['imagen']);?> " alt="" class="card__imag">
                 <div class="card__data">
-                    <h1 class="card__title">Tenis Adidas Negros</h1>
-                    <span class="card__preci">$850</span>
-                    <p class="card__description">Tenis Adidas Azul.</p>
-                    <p class="card__description">Modelo: shehc3.</p>
+                    <h1 class="card__title"> <?php echo ($row['nombre']);?></h1>
+                    <span class="card__preci">$<?php echo ($row['precio']);?></span>
+                    <p class="card__description">Modelo: <?php echo ($row['modelo']);?></p>
+                   
                     <a href="#" class="card__button">Comprar ahora</a>
                 </div>
             </div>
-
-            <div class="card">
-                <img src="img/tenis_adidas.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Tenis Adidas Negros</h1>
-                    <span class="card__preci">$850</span>
-                    <p class="card__description">Tenis Adidas Azul.</p>
-                    <p class="card__description">Modelo: shehc3.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/tenis_adidas.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Tenis Adidas Negros</h1>
-                    <span class="card__preci">$850</span>
-                    <p class="card__description">Tenis Adidas Azul.</p>
-                    <p class="card__description">Modelo: shehc3.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/tenis_adidas.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Tenis Adidas Negros</h1>
-                    <span class="card__preci">$850</span>
-                    <p class="card__description">Tenis Adidas Azul.</p>
-                    <p class="card__description">Modelo: shehc3.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/tenis_adidas.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Tenis Adidas Negros</h1>
-                    <span class="card__preci">$850</span>
-                    <p class="card__description">Tenis Adidas Azul.</p>
-                    <p class="card__description">Modelo: shehc3.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/tenis_adidas.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Tenis Adidas Negros</h1>
-                    <span class="card__preci">$850</span>
-                    <p class="card__description">Tenis Adidas Azul.</p>
-                    <p class="card__description">Modelo: shehc3.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/tenis_adidas.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Tenis Adidas Negros</h1>
-                    <span class="card__preci">$850</span>
-                    <p class="card__description">Tenis Adidas Azul.</p>
-                    <p class="card__description">Modelo: shehc3.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/tenis_adidas.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Tenis Adidas Negros</h1>
-                    <span class="card__preci">$850</span>
-                    <p class="card__description">Tenis Adidas Azul.</p>
-                    <p class="card__description">Modelo: shehc3.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-
+            <?php
+            }
+            ?>
         </div>
     </section>
 

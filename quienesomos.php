@@ -25,7 +25,7 @@ Tenemos a su disposición una gran variedad de productos, los cuales son renovad
 <p class="estilo-3">Para una mejor comunicación puedes contactar con nosotros a través de WhatsApp o mensaje privado de Facebook y tan sólo en unos minutos tu duda será resuelta.</p>
 <br /> 
             <div class="widgets">
-                <a href="pantalones.php">
+                <a href="contacto.php">
                     <img src="img/contacto.png" alt="" width="100" height="100">
                     <p>Contacto</p>
                 </a>

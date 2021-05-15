@@ -22,7 +22,7 @@ include_once("cabeceradmin.html");
     <section class="opciones">
 
         <div class="seleccion">
-            <a href="#">
+            <a href="productos.php">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" class="icon icon-tabler icon-tabler-building-store" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <line x1="3" y1="21" x2="21" y2="21" />
