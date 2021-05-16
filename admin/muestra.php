@@ -11,8 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <h1>Datos</h1>
-    <center><table>
+<center>
+    <h1>Productos </h1>
+    <table>
 <tr>
 <th>Nombre</th>
 <th>Modelo</th>
@@ -20,6 +21,7 @@
 <th>Stock</th>
 <th>Categoria</th>
 <th>Imagen</th>
+<th> <a href="nuevo_prod1.php"> <button type="button" class="btn btn-info">Nuevo</button> </a> </th>
 </tr>
 
 
@@ -29,7 +31,9 @@
  $resultado = mysqli_num_rows($query) ;
  if ($resultado>0){
      while($data = mysqli_fetch_array($query)){
-        ?>
+
+       ?>
+
 <tr>
   <td><?php echo $data['nombre']?></td>
   <td><?php echo $data['modelo']?></td>
@@ -45,12 +49,9 @@
 </tr>
 
 
-    <?php     
+<?php 
      }
  }
- 
-    
- 
  
 ?>
 </table></center>
