@@ -24,88 +24,25 @@ include_once("cabecera.html");
     </div>
     <section class="container">
         <div class="display-productos">
-            <div class="card">
-                <img src="img/relojnegro.jpg" alt="" class="card__imag">
+            <?php
+            include("modelo/config.php");
+            $query = "SELECT * FROM producto WHERE id_categoria= 6";
+            $resultado = $conexion->query($query);
+            while ($row = $resultado->fetch_assoc()) {
+            ?>
+              <div class="card">
+                <img src="data:image/jpg;base64, <?php echo base64_encode($row['imagen']);?> " alt="" class="card__imag">
                 <div class="card__data">
-                    <h1 class="card__title">Reloj Negro</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Reloj Malla Minimalista</p>
-                    <p class="card__description">Modelo:RNMM01</p>
+                    <h1 class="card__title"> <?php echo ($row['nombre']);?></h1>
+                    <span class="card__preci">$<?php echo ($row['precio']);?></span>
+                    <p class="card__description">Modelo: <?php echo ($row['modelo']);?></p>
+                   
                     <a href="#" class="card__button">Comprar ahora</a>
                 </div>
             </div>
-            <div class="card">
-                <img src="img/relojnegro.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Reloj Negro</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Reloj Malla Minimalista</p>
-                    <p class="card__description">Modelo:RNMM01</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/relojnegro.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Reloj Negro</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Reloj Malla Minimalista</p>
-                    <p class="card__description">Modelo:RNMM01</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/relojnegro.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Reloj Negro</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Reloj Malla Minimalista</p>
-                    <p class="card__description">Modelo:RNMM01</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/relojnegro.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Reloj Negro</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Reloj Malla Minimalista</p>
-                    <p class="card__description">Modelo:RNMM01</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/relojnegro.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Reloj Negro</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Reloj Malla Minimalista</p>
-                    <p class="card__description">Modelo:RNMM01</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/relojnegro.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Reloj Negro</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Reloj Malla Minimalista</p>
-                    <p class="card__description">Modelo:RNMM01</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/relojnegro.jpg" alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title">Reloj Negro</h1>
-                    <span class="card__preci">$1300</span>
-                    <p class="card__description">Reloj Malla Minimalista</p>
-                    <p class="card__description">Modelo:RNMM01</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-            </div>
-            
-      
+            <?php
+            }
+            ?>
         </div>
     </section>
 
