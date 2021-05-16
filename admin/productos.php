@@ -42,44 +42,43 @@ if (empty($_POST['nombre']) || empty($_POST['modelo'])) {
 </head>
 
 <body>
+        <div class="container">
+            <form action="" method="POST" class="login-email" enctype="multipart/form-data">
+                <p> Nuevo Producto </p>
+                <div>
+                    <div class="input-group">
+                        <input type='file' name='imagen' required="">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Nombre" name="nombre">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Modelo" name="modelo">
+                    </div>
+                    <div class="input-group">
+                        <input type="number" placeholder="Precio" name="precio">
+                    </div>
+                    <div class="input-group">
+                        <input type="number" placeholder="Stock" name="stock">
+                    </div>
+                    <div class="input-group">
+                        Categoria:
+                        <select name="categoria" id="">
+                            <option value="1">Camisas</option>
+                            <option value="2">Pantalones</option>
+                            <option value="3">Sudaderas</option>
+                            <option value="4">Tenis</option>
+                            <option value="5">Zapatos</option>
+                            <option value="6">Relojes</option>
+                            <option value="7">Gafas</option>
+                            <option value="8">Cinturones</option>
+                        </select>
+                    </div>
+                </div>
 
-    <div class="container">
-        <form action="" method="POST" class="login-email" enctype="multipart/form-data">
-            <p> Nuevo Producto </p>
-            <div>
-            <div class="input-group">
-                <input type='file' name='imagen' required="">
-            </div>
-            <div class="input-group">
-                <input type="text" placeholder="Nombre" name="nombre">
-            </div>
-            <div class="input-group">
-                <input type="text" placeholder="Modelo" name="modelo">
-            </div>
-            <div class="input-group">
-                <input type="number" placeholder="Precio" name="precio">
-            </div>
-            <div class="input-group">
-                <input type="number" placeholder="Stock" name="stock">
-            </div>
-            <div class="input-group">
-                Categoria:
-                <select name="categoria" id="">
-                    <option value="1">Camisas</option>
-                    <option value="2">Pantalones</option>
-                    <option value="3">Sudaderas</option>
-                    <option value="4">Tenis</option>
-                    <option value="5">Zapatos</option>
-                    <option value="6">Relojes</option>
-                    <option value="7">Gafas</option>
-                    <option value="8">Cinturones</option>
-                </select>
-            </div>
-            </div>
-            
-            <input type="submit" name="Guardar" value="Guardar">
-        </form>
-    </div>
+                <input type="submit" name="Guardar" value="Guardar">
+            </form>
+        </div>
 </body>
 <?php
 include_once("muestra.php");
