@@ -26,22 +26,26 @@ include_once("cabecera.html");
         <div class="display-productos">
             <?php
             include("modelo/config.php");
-            $query = "SELECT * FROM producto WHERE id_categoria= 3";
-            $resultado = $conexion->query($query);
-            while ($row = $resultado->fetch_assoc()) {
+            $query = mysqli_query($conexion,"SELECT * FROM producto WHERE id_categoria= 3");
+            $resultado = mysqli_num_rows($query);
+            if ($resultado>0){
+        while ($data = mysqli_fetch_array($query)) {
+            
+            
             ?>
               <div class="card">
-                <img src="data:image/jpg;base64, <?php echo base64_encode($row['imagen']);?> " alt="" class="card__imag">
+                <img src="data:image/jpg;base64, <?php echo base64_encode($data['imagen'])?> " alt="" class="card__imag">
                 <div class="card__data">
-                    <h1 class="card__title"> <?php echo ($row['nombre']);?></h1>
-                    <span class="card__preci">$<?php echo ($row['precio']);?></span>
-                    <p class="card__description">Modelo: <?php echo ($row['modelo']);?></p>
+                    <h1 class="card__title"> <?php echo ($data['nombre']);?></h1>
+                    <span class="card__preci">$<?php echo ($data['precio']);?></span>
+                    <p class="card__description">Modelo: <?php echo ($data['modelo']);?></p>
                    
                     <a href="#" class="card__button">Comprar ahora</a>
                 </div>
             </div>
             <?php
             }
+        }
             ?>
         </div>
     </section>
