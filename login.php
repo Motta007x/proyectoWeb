@@ -1,6 +1,6 @@
 <?php 
 
-//include 'modelo/config.php';
+include 'modelo/config.php';
 
 session_start();
 
@@ -14,12 +14,29 @@ if (isset($_POST['submit'])) {
 	$email = $_POST['email'];
 	$password = md5($_POST['password']);
 
-	$sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+	$sql = "SELECT * FROM usuario WHERE email='$email' AND password='$password'";
 	$result = mysqli_query($conexion, $sql);
 	if ($result->num_rows > 0) {
-		$row = mysqli_fetch_assoc($result);
-		$_SESSION['username'] = $row['username'];
-		header("Location: index.php");
+		
+			$row = mysqli_fetch_assoc($result);
+			$_SESSION['username'] = $row['username'];
+
+			$tipousuario = $row[4];
+			$_SESSION['tipousuario'] = $tipousuario;
+
+			if(password_verify($password, $row['password'])){
+
+				switch($_SESSION['tipousuario']){
+					case 1:
+						header('location: administrador.php');
+					break;
+					case 2:
+						header('location: usuario.php');
+					break;
+	
+					default:
+				}
+			}
 	} else {
 		echo "<script>alert('¡Ups! El correo electrónico o la contraseña son incorrectos.')</script>";
 	}

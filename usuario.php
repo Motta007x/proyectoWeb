@@ -1,3 +1,8 @@
+<?php
+
+
+?>
+
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
@@ -15,13 +20,21 @@
                 <ul class="nav__links">
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="categorias.php"> Productos </a></li>
-                    <li><a href="usuario.php">Soporte</a></li>
+                    <li><a href="pedidos.php"> Mis Pedidos </a></li>
+                    <li><a href="carrito.php"> Carrito </a></li>
+                    <li><a href="notfound.php">Soporte</a></li>
                     <!--li><a href="notfound.php">Mis Pedidos</a></li-->
                 </ul>
             </nav>
-            <a class="cta" href="login.php"> Iniciar sesion </a>
+            <h2> <?php echo "Hola, ". "Jorge Luis" ?> </h2>
+            <a class="cta" href="login.php"> Perfil  </a>
+            <a class="cta" href="login.php"> Cerrar sesión  </a>
             <p class="menu cta">Menu</p>
         </header>
+        <?php 
+          include_once ("aside.html");
+          include_once ("footer.html");
+        ?>
         <div class="overlay">
             <a class="close">&times;</a>
             <div class="overlay__content">

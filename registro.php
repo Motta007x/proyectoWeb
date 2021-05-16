@@ -11,25 +11,25 @@ if (isset($_SESSION['username'])) {
 
 if (isset($_POST['submit'])) {
 	$username = $_POST['username'];
-	$apellido = $_POST['apellido'];
 	$email = $_POST['email'];
 	$password = md5($_POST['password']);
 	$cpassword = md5($_POST['cpassword']);
+	$tipousuario = (int)"2";
 
 	if ($password == $cpassword) {
 		$sql = "SELECT * FROM usuario WHERE email='$email'";
 		$result = mysqli_query($conexion, $sql);
 		if (!$result->num_rows > 0) {
-			$sql = "INSERT INTO usuario (nombre, apellido, email, contraseña)
-					VALUES ('$username', '$apellido', '$email', '$password')";
+			$sql = "INSERT INTO usuario (username, email, password, id_tipo_usuario)
+					VALUES ('$username', '$email', '$password', '$tipousuario')";
 			$result = mysqli_query($conexion, $sql);
 			if ($result) {
 				echo "<script>alert('Bien! Usuario Registrado Con Exito.')</script>";
 				$username = "";
-				$apellido = "";
 				$email = "";
 				$_POST['password'] = "";
 				$_POST['cpassword'] = "";
+				$tipousuario ="";
 			} else {
 				echo "<script>alert('¡Oh! Algo Salio Mal.')</script>";
 			}
@@ -64,9 +64,6 @@ if (isset($_POST['submit'])) {
             <p class="login-text" style="font-size: 2rem; font-weight: 800;"> Formulario de Registro </p>
 			<div class="input-group">
 				<input type="text" placeholder="Nombre" name="username" value="<?php echo $username; ?>" required>
-			</div>
-			<div class="input-group">
-				<input type="text" placeholder="Apellido" name="apellido" value="<?php echo $apellido; ?>" required>
 			</div>
 			<div class="input-group">
 				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
