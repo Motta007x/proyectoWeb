@@ -3,9 +3,8 @@
 
 <head>
     <title> Categorias </title>
-    <link rel="stylesheet" href="css/styles.css">
-    <meta name="viewport" content="width =device-width, initial-scale =1"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="css/stylescategorias.css?v=<?php echo time(); ?>">
+    <meta name="viewport" content="width =device-width, initial-scale =1"> <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Kaushan+Script&family=Secular+One&display=swap" rel="stylesheet">
 </head>
      <?php
@@ -33,14 +32,14 @@
             </div>
 
             <div class="widgets">
-                <a href="#">
+                <a href="pantalones.php">
                     <img src="img/pantalones.png" alt="" width="100" height="100">
                     <p>Pantalones</p>
                 </a>
             </div>
 
             <div class="widgets">
-                <a href="#">
+                <a href="sudaderas.php">
                     <img src="img/sudadera.png" alt="" width="100" height="100">
                     <p>Sudaderas</p>
                 </a>
@@ -52,28 +51,27 @@
                 </a>
             </div>
             <div class="widgets">
-                <a href="#">
+                <a href="zapatos.php">
                     <img src="img/shoe.png" alt="" width="100" height="100">
                     <p>Zapatos</p>
                 </a>
             </div>
-
             <div class="widgets">
-                <a href="#">
+                <a href="relojes.php">
                     <img src="img/reloj.png" alt="" width="100" height="100">
                     <p>Relojes</p>
                 </a>
             </div>
 
             <div class="widgets">
-                <a href="#">
+                <a href="gafas.php">
                     <img src="img/gafas.png" alt="" width="100" height="100">
                     <p>Gafas</p>
                 </a>
             </div>
 
             <div class="widgets">
-                <a href="#">
+                <a href="cinturones.php">
                     <img src="img/cinturon.png" alt="" width="100" height="100">
                     <p>Cinturones</p>
                 </a>
