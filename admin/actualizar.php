@@ -66,7 +66,7 @@ $row = mysqli_fetch_array($query);
                     <option value="8">27</option>
                     <option value="9">28</option>
                     <option value="10">29</option>
-                    <option value=11">UNITALLA</option>
+                    <option value="11">UNITALLA</option>
                 </select>
                 <label for="">imagen</label>
                 <input class="form-control mb-3" type='file' name='imagen' required="" value="<?php echo $row['imagen']  ?>">
