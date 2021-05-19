@@ -60,3 +60,11 @@ body{
     height: 40px;
     background-color:#24252a ;
 }
+.agregar{
+    margin-bottom: 2rem;
+}
+.actualiza{
+    margin: auto;
+    max-width: 300px;
+    margin-bottom: 2rem;
+}

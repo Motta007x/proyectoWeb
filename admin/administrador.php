@@ -13,7 +13,7 @@
 
 <body>
 <?php
-include_once("cabeceradmin.html");
+include_once("../cabeceradmin.html");
 ?>
 
     <h2 class="texto"> Bienvenido Administrador

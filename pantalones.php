@@ -30,16 +30,15 @@ include_once("cabecera.html");
             $resultado = $conexion->query($query);
             while ($row = $resultado->fetch_assoc()) {
             ?>
-              <div class="card">
-                <img src="data:image/jpg;base64, <?php echo base64_encode($row['imagen']);?> " alt="" class="card__imag">
-                <div class="card__data">
-                    <h1 class="card__title"> <?php echo ($row['nombre']);?></h1>
-                    <span class="card__preci">$<?php echo ($row['precio']);?></span>
-                    <p class="card__description">Modelo: <?php echo ($row['modelo']);?></p>
-                   
-                    <a href="#" class="card__button">Comprar ahora</a>
+                <div class="card">
+                    <img src="data:image/jpg;base64, <?php echo base64_encode($row['imagen']); ?> " alt="" class="card__imag">
+                    <div class="card__data">
+                        <h1 class="card__title"> <?php echo ($row['nombre']); ?></h1>
+                        <span class="card__preci">$<?php echo ($row['precio']); ?></span>
+                        <p class="card__description">Modelo: <?php echo ($row['modelo']); ?></p>
+                        <a href="#" class="card__button">Comprar ahora</a>
+                    </div>
                 </div>
-            </div>
             <?php
             }
             ?>
