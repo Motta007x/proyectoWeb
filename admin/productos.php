@@ -12,7 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Producto </title>
 </head>
-
 <body>
 
     <?php
@@ -21,10 +20,8 @@
     <div class="container mt-5 agregar" >
         <div class="row">
             <div class="col-md-3">
-                <h1>Ingrese datos</h1>
+                <h1>Nuevo Producto</h1>
                 <form action="insertar.php" method="POST" enctype="multipart/form-data">
-
-
                         <input type="text" placeholder="Nombre" name="nombre" class="form-control mb-3" required="">
                    
                    
