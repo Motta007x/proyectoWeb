@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+
+if (isset($_SESSION['username'])) {
+}
 
 ?>
 
@@ -19,20 +23,21 @@
             <nav>
                 <ul class="nav__links">
                     <li><a href="index.php">Inicio</a></li>
-                    <li><a href="categorias.php"> Productos </a></li>
+                    <li><a href="cabecerac.php"> Productos </a></li>
                     <li><a href="pedidos.php"> Mis Pedidos </a></li>
-                    <li><a href="carrito.php"> Carrito </a></li>
+                    <li><a href="ver_carrito.php"> Carrito </a></li>
                     <li><a href="notfound.php">Soporte</a></li>
                     <!--li><a href="notfound.php">Mis Pedidos</a></li-->
                 </ul>
             </nav>
-            <h2> <?php echo "Hola, ". "Jorge Luis" ?> </h2>
+            <h2> <?php echo "Hola, ". $_SESSION['username']; ?> </h2>
             <a class="cta" href="login.php"> Perfil  </a>
-            <a class="cta" href="login.php"> Cerrar sesión  </a>
+            <a class="cta" href="logout.php"> Cerrar sesión  </a>
             <p class="menu cta">Menu</p>
         </header>
         <?php 
           include_once ("aside.html");
+          include_once ("promos.php");
           include_once ("footer.html");
         ?>
         <div class="overlay">

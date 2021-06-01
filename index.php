@@ -1,5 +1,11 @@
 <?php 
 
+session_start();
+
+if (isset($_SESSION['username'])) {
+    header("Location: usuario.php");
+}
+
 include_once("cabecera.html");
 include_once("aside.html");
 include_once("promos.php");

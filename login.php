@@ -2,17 +2,17 @@
 
 include 'modelo/config.php';
 
-session_start();
-
 error_reporting(0);
 
+session_start();
+
 if (isset($_SESSION['username'])) {
-    header("Location: index.php");
+    header("Location: usuario.php");
 }
 
 if (isset($_POST['submit'])) {
 	$email = $_POST['email'];
-	$password = md5($_POST['password']);
+	$password = $_POST['password'];
 
 	$sql = "SELECT * FROM usuario WHERE email='$email' AND password='$password'";
 	$result = mysqli_query($conexion, $sql);
@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
 
 				switch($_SESSION['tipousuario']){
 					case 1:
-						header('location: administrador.php');
+						header('location: admin/administrador.php');
 					break;
 					case 2:
 						header('location: usuario.php');
