@@ -31,7 +31,11 @@ include_once("cabecera.html");
             while ($row = $resultado->fetch_assoc()) {
             ?>
               <div class="card">
-                <img src="data:image/jpg;base64, <?php echo base64_encode($row['imagen']);?> " alt="" class="card__imag">
+              <div class="card__imag" >
+              <?php
+                    echo "<img  src='img_productos/" . $row['imagen'] . "' >"
+                    ?>
+                </div>
                 <div class="card__data">
                     <h1 class="card__title"> <?php echo ($row['nombre']);?></h1>
                     <span class="card__preci">$<?php echo ($row['precio']);?></span>

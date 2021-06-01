@@ -26,25 +26,28 @@
     </div>
 
     <section class="categorias">
-        <div class="display-categorias">
+        <form method="$_POST" class="display-categorias">
+
+
+        <!-- <input type="image" name="1" src="img/camisa.png" alt="" class="widgets" width="60" height="100"> -->
 
 
             <div class="widgets">
-                <a href="camisas.php">
+                <a  href="camisas.php" name="1">
                     <img src="img/camisa.png" width="100" height="100">
                     <p>Camisas</p>
                 </a>
             </div>
 
             <div class="widgets">
-                <a href="pantalones.php">
+                <a href="pantalones.php" name="2">
                     <img src="img/pantalones.png" alt="" width="100" height="100">
                     <p>Pantalones</p>
                 </a>
             </div>
 
             <div class="widgets">
-                <a href="sudaderas.php">
+                <a href="sudaderas.php" name="3">
                     <img src="img/sudadera.png" alt="" width="100" height="100">
                     <p>Sudaderas</p>
                 </a>
@@ -81,8 +84,22 @@
                     <p>Cinturones</p>
                 </a>
             </div>
-        </div>
+        </form>
     </section>
+
+ <?php
+
+// require_once("modelo/config.php");
+
+// $id = $_POST['1'];
+
+//             $sql = "SELECT * FROM producto WHERE id_producto='$id'";
+//             $query = mysqli_query($conexion, $sql);
+
+//             $row = mysqli_fetch_array($query);
+
+?>
+
     <section class="contenedor-slide">
     <div class="slider">
         <ul>

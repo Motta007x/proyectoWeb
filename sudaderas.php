@@ -34,7 +34,11 @@ include_once("cabecera.html");
             
             ?>
               <div class="card">
-                <img src="data:image/jpg;base64, <?php echo base64_encode($data['imagen'])?> " alt="" class="card__imag">
+              <div class="card__imag" >
+                <?php
+                    echo "<img  src='img_productos/" . $data['imagen'] . "' >"
+                    ?>
+                </div>
                 <div class="card__data">
                     <h1 class="card__title"> <?php echo ($data['nombre']);?></h1>
                     <span class="card__preci">$<?php echo ($data['precio']);?></span>
