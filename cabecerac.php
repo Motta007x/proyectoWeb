@@ -1,41 +1,46 @@
 <?php
-
 session_start();
-
+require_once("modelo/config.php");
 if (isset($_SESSION['username'])) {
+    $query = mysqli_query($conexion, "SELECT * FROM categorias");
+if (isset($_GET['id_categoria'])) {
+    $id_categoria = $_GET['id_categoria'];
+    $query_productos = "SELECT * FROM producto, tallas
+                                WHERE id_categoria= $id_categoria AND  producto.id_tallas = tallas.id_tallas
+                                  ";
+  $resultado_productos = $conexion->query($query_productos);
+}
+else{
+    $query_productos = "SELECT * FROM producto, tallas where producto.id_tallas = tallas.id_tallas";
+    $resultado_productos = $conexion->query($query_productos);
+}
+}
+else{
+    
 }
 
 ?>
+
+
 
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title> Csay </title>
+        <title> Productos </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/stylesnav.css">
-        <link rel="stylesheet" href="css/stylescategorias.css?v=<?php echo time(); ?>">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/stylescategorias.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/stylesproductos.css?v=<?php echo time(); ?>">
+    <meta name="viewport" content="width =device-width, initial-scale =1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Kaushan+Script&family=Secular+One&display=swap" rel="stylesheet">
     </head>
-        <header>
-            <a class="logo" href="index.php"><img src="img/Csay.png" alt="logo"></a>
-            <nav>
-                <ul class="nav__links">
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="cabecerac.php"> Productos </a></li>
-                    <li><a href="pedidos.php"> Mis Pedidos </a></li>
-                    <li><a href="carrito.php"> Carrito </a></li>
-                    <li><a href="notfound.php">Soporte</a></li>
-                    <!--li><a href="notfound.php">Mis Pedidos</a></li-->
-                </ul>
-            </nav>
-            <h2> <?php echo "Hola, ". $_SESSION['username']; ?> </h2>
-            <a class="cta" href="login.php"> Perfil  </a>
-            <a class="cta" href="logout.php"> Cerrar sesión  </a>
-            <p class="menu cta">Menu</p>
-        </header>
         
+        <?php
+          include_once ("cabeceracliente.php");
+        ?>
         <div class="overlay">
             <a class="close">&times;</a>
             <div class="overlay__content">
@@ -55,64 +60,73 @@ if (isset($_SESSION['username'])) {
         </div>
     </div>
 
-    <section class="categorias">
-        <div class="display-categorias">
+           <section class="categorias">
+        <section class="display-categorias">
+            <?php
+            $resultado = mysqli_num_rows($query);
+            if ($resultado > 0) {
+                while ($data = mysqli_fetch_array($query)) {
+                    $id_categoria = $data[0];
+                    $categoria = $data[1];
+            ?>
+                    <div class="widgets">
+                        <a href="cabecerac.php?id_categoria=<?php echo $id_categoria; ?>">
+                            <?php
+                            echo  "<img width='100' height='100' src='img_categorias/" . $data['imagen_cat'] . "'>";
+                            echo $categoria;
+                            ?>
+                        </a>
+                    </div>
+            <?php
+                }  // cierre de while
+            }    //cierre de if
 
+            ?>
+           
 
-            <div class="widgets">
-                <a href="camisas.php">
-                    <img src="img/camisa.png" width="100" height="100">
-                    <p>Camisas</p>
-                </a>
-            </div>
+        </section>
+    </section>
 
-            <div class="widgets">
-                <a href="pantalones.php">
-                    <img src="img/pantalones.png" alt="" width="100" height="100">
-                    <p>Pantalones</p>
-                </a>
-            </div>
+    <?php
 
-            <div class="widgets">
-                <a href="sudaderas.php">
-                    <img src="img/sudadera.png" alt="" width="100" height="100">
-                    <p>Sudaderas</p>
+    ?>
+     <div class="widgets">
+                <a href="cabecerac.php">
+                    <?php
+                    echo "Ver Todos";
+                    ?>
                 </a>
             </div>
-            <div class="widgets">
-                <a href="tenis.php">
-                    <img src="img/shoes.png" alt="" width="100" height="100">
-                    <p>Tenis</p>
-                </a>
-            </div>
-            <div class="widgets">
-                <a href="zapatos.php">
-                    <img src="img/shoe.png" alt="" width="100" height="100">
-                    <p>Zapatos</p>
-                </a>
-            </div>
-            <div class="widgets">
-                <a href="relojes.php">
-                    <img src="img/reloj.png" alt="" width="100" height="100">
-                    <p>Relojes</p>
-                </a>
-            </div>
+            
+            <section class="container">
+        <a name="categoria-<?php echo $data['id_categoria'] ?>"> </a>
+        <div class="display-productos">
+            <?php
 
-            <div class="widgets">
-                <a href="gafas.php">
-                    <img src="img/gafas.png" alt="" width="100" height="100">
-                    <p>Gafas</p>
-                </a>
-            </div>
+            while ($row = $resultado_productos->fetch_assoc()) {
+            ?>
+                <div class="card">
+                    <div class="card__imag">
+                        <?php
+                        echo "<img  src='img_productos/" . $row['imagen'] . "' >"
+                        ?>
+                    </div>
 
-            <div class="widgets">
-                <a href="cinturones.php">
-                    <img src="img/cinturon.png" alt="" width="100" height="100">
-                    <p>Cinturones</p>
-                </a>
-            </div>
+                    <div class="card__data">
+                        <h1 class="card__title"> <?php echo ($row['nombre']); ?></h1>
+                        <span class="card__preci">$<?php echo ($row['precio']); ?></span>
+                        <p class="card__description">Modelo: <?php echo ($row['modelo']); ?></p>
+                              <p class="card__description">Talla: <?php echo ($row['tipo_talla']); ?></p>
+
+                        <a href="#" class="card__button">Comprar ahora</a>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
         </div>
     </section>
+            
     <section class="contenedor-slide">
     <div class="slider">
         <ul>

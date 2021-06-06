@@ -12,30 +12,20 @@ if (isset($_SESSION['username'])) {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title> Csay </title>
-        <meta name="description" content="">
+             <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/stylesnav.css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/stylescategorias.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/stylesproductos.css?v=<?php echo time(); ?>">
+    <meta name="viewport" content="width =device-width, initial-scale =1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Kaushan+Script&family=Secular+One&display=swap" rel="stylesheet">
+   
     </head>
     <body>
-        <header>
-            <a class="logo" href="index.php"><img src="img/Csay.png" alt="logo"></a>
-            <nav>
-                <ul class="nav__links">
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="cabecerac.php"> Productos </a></li>
-                    <li><a href="pedidos.php"> Mis Pedidos </a></li>
-                    <li><a href="ver_carrito.php"> Carrito </a></li>
-                    <li><a href="notfound.php">Soporte</a></li>
-                    <!--li><a href="notfound.php">Mis Pedidos</a></li-->
-                </ul>
-            </nav>
-            <h2> <?php echo "Hola, ". $_SESSION['username']; ?> </h2>
-            <a class="cta" href="login.php"> Perfil  </a>
-            <a class="cta" href="logout.php"> Cerrar sesión  </a>
-            <p class="menu cta">Menu</p>
-        </header>
+        
         <?php 
+            include_once ("cabeceracliente.php");
           include_once ("aside.html");
           include_once ("promos.php");
           include_once ("footer.html");
