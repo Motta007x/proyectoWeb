@@ -80,6 +80,13 @@ $row = mysqli_fetch_array($query);
 
                         ?>
                 </select>
+                ¿Promoción?
+                    <select class="form-control mb-3" name="promo" value="<?php echo $row['promo']  ?>">
+                       
+                        <option value='NO'>NO</option>
+                        <option value='SI'>SI</option>
+
+                    </select>
                 <label for="">imagen</label>
                 <input class="form-control mb-3" type='file' name='imagen' required="" value="<?php echo $row['imagen']  ?>">
 

@@ -18,8 +18,9 @@ if (empty($_POST['nombre']) || empty($_POST['modelo'])|| empty($_POST['precio'])
     $categoria = $_POST['categoria'];
 
     $talla = $_POST['talla'];
+    $promo = $_POST['promo'];
 
-    $query = "INSERT INTO producto (nombre, modelo, precio, cantidad_existente, imagen, id_categoria, id_tallas) VALUES ('$nombre','$modelo',$precio, $stock, '$dir_imagen', $categoria, $talla) ";
+    $query = "INSERT INTO producto (nombre, modelo, precio, cantidad_existente, imagen, id_categoria, id_tallas,promo) VALUES ('$nombre','$modelo',$precio, $stock, '$dir_imagen', $categoria, $talla,'$promo') ";
     $resultado = $conexion->query(($query));
     if ($resultado) {
         Header("Location: productos.php");
