@@ -72,6 +72,14 @@
                         ?>
                     </select>
 
+                    ¿Promoción?
+                    <select class="form-control mb-3" name="promo">
+                       
+                        <option value='NO'>NO</option>
+                        <option value='SI'>SI</option>
+
+                    </select>
+
 
 
                     <label for="">Imagen</label>
@@ -90,6 +98,7 @@
                             <th>Stock</th>
                             <th>Categoria</th>
                             <th>Talla</th>
+                            <th>Promoción</th>
                             <th>Imagen</th>
                         </tr>
                     </thead>
@@ -114,6 +123,7 @@
                                     <td><?php echo $data['cantidad_existente'] ?></td>
                                     <td><?php echo $data['nombre_cat'] ?></td>
                                     <td><?php echo $data['tipo_talla'] ?></td>
+                                    <td><?php echo $data['promo'] ?></td>
 
                                     <td>
                                         <?php

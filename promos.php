@@ -1,3 +1,15 @@
+<?php
+require_once("modelo/config.php");
+
+$query_productos = "SELECT * FROM producto,tallas
+                                WHERE  producto.id_tallas = tallas.id_tallas AND promo='SI'
+                                  ";
+$resultado_productos = $conexion->query($query_productos);
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,74 +18,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="css/stylespromos.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/stylesproductos.css?v=<?php echo time(); ?>">
 
     <title>Promociones</title>
 </head>
 
 <body>
-    <div class="texto">
-        <h2>Promociones</h2>
+    <div class="texto_titulo">
+        <p>Promociones</p>
     </div>
+
+
+
     <section class="container">
+        <a name="categoria-<?php echo $data['id_categoria'] ?>"> </a>
         <div class="display-productos">
-            <div class="card">
-                <img src="img/camisas.jpg" alt="" class="card__img">
+            <?php
 
-                <!-- <div class="card__content">  -->
-                <div class="card__data">
-                    <h1 class="card__title">Camisa Elegante</h1>
-                    <span class="card__preci">$499</span>
-                    <p class="card__description">Camisa elegante de cuadros azul.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
+            while ($row = $resultado_productos->fetch_assoc()) {
+            ?>
+                <div class="card">
+                    <div class="card__imag">
+                        <?php
+                        echo "<img  src='img_productos/" . $row['imagen'] . "' >"
+                        ?>
+                    </div>
+
+                    <div class="card__data">
+                        <h1 class="card__title"> <?php echo ($row['nombre']); ?></h1>
+                        <span class="card__preci">$<?php echo ($row['precio']); ?></span>
+                        <p class="card__description">Modelo: <?php echo ($row['modelo']); ?></p>
+                        <p class="card__description">Talla: <?php echo ($row['tipo_talla']); ?></p>
+
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                            ?>
+                                    <a href="#" class="card__button">Comprar ahora</a>
+                           <?php  
+                        } 
+                        
+                        else {
+                            ?>
+                            <a href="login.php" class="card__button">Comprar ahora</a>
+                            <?php  
+                        }
+
+                        ?>
+
+                        
+                    </div>
                 </div>
-                <!-- </div> -->
-            </div>
-
-            <div class="card">
-                <img src="img/camisas.jpg" alt="" class="card__img">
-
-                <!-- <div class="card__content">  -->
-                <div class="card__data">
-                    <h1 class="card__title">Camisa Elegante</h1>
-                    <span class="card__preci">$499</span>
-                    <p class="card__description">Camisa elegante de cuadros azul.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-                <!-- </div> -->
-            </div>
-
-            <div class="card">
-                <img src="img/camisas.jpg" alt="" class="card__img">
-
-                <!-- <div class="card__content">  -->
-                <div class="card__data">
-                    <h1 class="card__title">Camisa Elegante</h1>
-                    <span class="card__preci">$499</span>
-                    <p class="card__description">Camisa elegante de cuadros azul.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-                <!-- </div> -->
-            </div>
-
-            <div class="card">
-                <img src="img/camisas.jpg" alt="" class="card__img">
-
-                <!-- <div class="card__content">  -->
-                <div class="card__data">
-                    <h1 class="card__title">Camisa Elegante</h1>
-                    <span class="card__preci">$499</span>
-                    <p class="card__description">Camisa elegante de cuadros azul.</p>
-                    <a href="#" class="card__button">Comprar ahora</a>
-                </div>
-                <!-- </div> -->
-            </div>
-
-        
+            <?php
+            }
+            ?>
         </div>
-
-
     </section>
+
+
 </body>
 
 </html>

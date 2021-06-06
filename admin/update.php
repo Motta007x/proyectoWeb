@@ -16,9 +16,10 @@ $nombre = $_POST['nombre'];
     $categoria = $_POST['categoria'];
 
     $talla = $_POST['talla'];
+    $promo = $_POST['promo'];
 
 
-        $sql="UPDATE producto SET  nombre='$nombre', modelo='$modelo', precio=$precio, cantidad_existente=$stock, imagen= '$dir_imagen', id_categoria=$categoria, id_tallas=$talla WHERE id_producto='$id'";
+        $sql="UPDATE producto SET  nombre='$nombre', modelo='$modelo', precio=$precio, cantidad_existente=$stock, imagen= '$dir_imagen', id_categoria=$categoria, id_tallas=$talla, promo='$promo' WHERE id_producto='$id'";
         $query=mysqli_query($conexion,$sql);
 
     if($query){
