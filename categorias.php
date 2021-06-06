@@ -99,7 +99,7 @@ include_once("cabecera.html");
                         <span class="card__preci">$<?php echo ($row['precio']); ?></span>
                         <p class="card__description">Modelo: <?php echo ($row['modelo']); ?></p>
                              <p class="card__description">Talla: <?php echo ($row['tipo_talla']); ?></p>
-                        <a href="#" class="card__button">Comprar ahora</a>
+                        <a href="login.php" class="card__button">Comprar ahora</a>
                     </div>
                 </div>
             <?php
