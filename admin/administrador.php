@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['username'])) {
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,9 +22,22 @@
 ?>
 
 <body>
-<?php
+<!--?php
 include_once("../cabeceradmin.html");
-?>
+?-->
+
+<header>
+            <a class="logo" href="../index.php"><img src="../img/Csay.png" alt="logo"></a>
+            <nav>
+                <ul class="nav__links">
+                    <li><a href="../index.php">Inicio</a></li>
+                    <!--li><a href="notfound.php">Mis Pedidos</a></li-->
+                </ul>
+            </nav>
+            <h2> <?php echo "Hola, ". $_SESSION['username']; ?> </h2>
+            <a class="cta" href="../logout.php"> Cerrar sesión  </a>
+            <p class="menu cta">Menu</p>
+        </header>
 
     <h2 class="texto"> Bienvenido Administrador
     </h2>
@@ -73,6 +96,21 @@ include_once("../cabeceradmin.html");
                     <path d="M8 15h3" />
                 </svg>
                 <h3>Historial</h3>
+            </a>
+        </div>
+        <div class="seleccion">
+            <a href="ver_categorias.php">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon"  class="icon icon-tabler icon-tabler-report" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697" />
+                    <path d="M18 14v4h4" />
+                    <path d="M18 11v-4a2 2 0 0 0 -2 -2h-2" />
+                    <rect x="8" y="3" width="6" height="4" rx="2" />
+                    <circle cx="18" cy="18" r="4" />
+                    <path d="M8 11h4" />
+                    <path d="M8 15h3" />
+                </svg>
+                <h3>Categorias</h3>
             </a>
         </div>
 

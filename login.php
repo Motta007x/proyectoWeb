@@ -6,10 +6,6 @@ error_reporting(0);
 
 session_start();
 
-if (isset($_SESSION['username'])) {
-    header("Location: usuario.php");
-}
-
 if (isset($_POST['submit'])) {
 	$email = $_POST['email'];
 	$password = $_POST['password'];
@@ -17,16 +13,12 @@ if (isset($_POST['submit'])) {
 	$sql = "SELECT * FROM usuario WHERE email='$email' AND password='$password'";
 	$result = mysqli_query($conexion, $sql);
 	if ($result->num_rows > 0) {
-		
-			$row = mysqli_fetch_assoc($result);
-			$_SESSION['username'] = $row['username'];
+		$row = mysqli_fetch_assoc($result);
+		$_SESSION['username'] = $row['username'];
+		//$tipousuario = $result[4]; 
+		$_SESSION['id_tipo_usuario'] = $row['id_tipo_usuario'];
 
-			$tipousuario = $row[4];
-			$_SESSION['tipousuario'] = $tipousuario;
-
-			if(password_verify($password, $row['password'])){
-
-				switch($_SESSION['tipousuario']){
+				switch($_SESSION['id_tipo_usuario']){
 					case 1:
 						header('location: admin/administrador.php');
 					break;
@@ -36,7 +28,6 @@ if (isset($_POST['submit'])) {
 	
 					default:
 				}
-			}
 	} else {
 		echo "<script>alert('¡Ups! El correo electrónico o la contraseña son incorrectos.')</script>";
 	}

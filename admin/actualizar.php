@@ -44,29 +44,41 @@ $row = mysqli_fetch_array($query);
 
                 Categoria:
                 <select class="form-control mb-3" name="categoria" value="<?php echo $row['id_categoria']  ?>">
-                    <option value="1">Camisas</option>
-                    <option value="2">Pantalones</option>
-                    <option value="3">Sudaderas</option>
-                    <option value="4">Tenis</option>
-                    <option value="5">Zapatos</option>
-                    <option value="6">Relojes</option>
-                    <option value="7">Gafas</option>
-                    <option value="8">Cinturones</option>
+                <?php
+                        require_once("../modelo/config.php");
+                        $query_cat = mysqli_query($conexion, "SELECT * FROM categorias");
+                        $resultado_cat = mysqli_num_rows($query_cat);
+                        if ($resultado_cat > 0) {
+                            while ($data = mysqli_fetch_array($query_cat)) {
+                                $id_categoria = $data[0];
+                        ?>
+
+                                <option value="<?php echo $data['id_categoria'] ?>"><?php echo $data['nombre_cat'] ?></option>
+
+                        <?php
+                            }  // cierre de while
+                        }    //cierre de if
+
+                        ?>
                 </select>
 
                 Talla:
                 <select class="form-control mb-3" name="talla" value="<?php echo $row['id_tallas']  ?>">
-                    <option value="1">S</option>
-                    <option value="2">M</option>
-                    <option value="3">L</option>
-                    <option value="4">G</option>
-                    <option value="5">XG</option>
-                    <option value="6">25</option>
-                    <option value="7">26</option>
-                    <option value="8">27</option>
-                    <option value="9">28</option>
-                    <option value="10">29</option>
-                    <option value="11">UNITALLA</option>
+                <?php
+                        require_once("../modelo/config.php");
+                        $query_talla = mysqli_query($conexion, "SELECT * FROM tallas");
+                        $resultado_talla = mysqli_num_rows($query_talla);
+                        if ($resultado_talla > 0) {
+                            while ($data2 = mysqli_fetch_array($query_talla)) {
+                        ?>
+
+                                <option value="<?php echo $data2['id_tallas'] ?>"><?php echo $data2['tipo_talla'] ?></option>
+
+                        <?php
+                            }  // cierre de while
+                        }    //cierre de if
+
+                        ?>
                 </select>
                 <label for="">imagen</label>
                 <input class="form-control mb-3" type='file' name='imagen' required="" value="<?php echo $row['imagen']  ?>">
