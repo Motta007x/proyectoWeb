@@ -181,3 +181,15 @@ margin-bottom: 30px;
     background-color: hsl(34, 50%, 45%);
     color: white;
   }
+  .texto_titulo{
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 3rem;
+    color: #000000 !important;
+    text-shadow: 1px 1px white, -1px -1px #333;
+   
+    color: #ddd;
+    padding: 10px;
+  }
