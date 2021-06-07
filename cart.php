@@ -129,20 +129,26 @@ if (isset($_SESSION['carrito'])) {
                         <td>
                           <div class="input-group mb-3" style="max-width: 120px;">
                             <div class="input-group-prepend">
-                              <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                            <!-- Boton disminutye -->
+                              <button class="btn btn-outline-primary js-btn-minus btnIncrementar" type="button">&minus;</button>
                             </div>
 
                             <!-- Input de las cantidades -->
-                            <input type="text" class="form-control text-center txtCantidad" data-precio="<?php echo $arregloCarrito[$i]['Precio']; ?>" data-id="<?php echo $arregloCarrito[$i]['Id_producto']; ?>" value="<?php echo $arregloCarrito[$i]['Cantidad']; ?> " placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <input type="text" class="form-control text-center txtCantidad"
+                             data-precio="<?php echo $arregloCarrito[$i]['Precio']; ?>"
+                              data-id="<?php echo $arregloCarrito[$i]['Id_producto']; ?>" 
+                              value="<?php echo $arregloCarrito[$i]['Cantidad']; ?> "
+                               placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                             <div class="input-group-append">
-                              <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                            <!-- boton incrementa -->
+                              <button class="btn btn-outline-primary js-btn-plus btnIncrementar" type="button">&plus;</button>
                             </div>
                           </div>
 
                         </td>
                         <!-- Calculo de la cartidad -->
                         <td class="cant<?php echo $arregloCarrito[$i]['Id_producto']; ?>">
-                          $ <?php echo $arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad']; ?> </td>
+                           <?php echo $arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad']; ?> </td>
 
                         <!-- Boton eliminarCarrito -->
                         <td><a href="#" class="btn btn-primary btn-sm btnEliminar" data-id=" <?php echo $arregloCarrito[$i]['Id_producto']; ?> ">Eliminar</a></td>
@@ -165,20 +171,8 @@ if (isset($_SESSION['carrito'])) {
                   <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
                 </div>
               </div>
-        </center>
-        <!--div class="row">
-              <div class="col-md-12">
-                <label class="text-black h4" for="coupon">Coupon</label>
-                <p>Enter your coupon code if you have one.</p>
-              </div>
-              <div class="col-md-8 mb-3 mb-md-0">
-                <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
-              </div>
-              <div class="col-md-4">
-                <button class="btn btn-primary btn-sm">Apply Coupon</button>
-              </div>
-            </div>
-          </div-->
+              </center>
+ 
         <div class="col-md-6 pl-5">
           <div class="row justify-content-end">
             <div class="col-md-7">
@@ -218,7 +212,6 @@ if (isset($_SESSION['carrito'])) {
 
   <?php include("footer.html"); ?>
   </div>
-
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/popper.min.js"></script>
@@ -226,7 +219,6 @@ if (isset($_SESSION['carrito'])) {
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
-
   <script src="js/main.js"></script>
   <script>
     $(document).ready(function() {
@@ -245,16 +237,34 @@ if (isset($_SESSION['carrito'])) {
 
         });
       });
-
-      $(".txtCantidad").change(function() {
-
+      $(".txtCantidad").keyup(function() {
         var cantidad = $(this).val();
         var precio = $(this).data('precio');
-        var id2 = $(this).data('id');
-        var multi = parseFloat(cantidad) * parseFloat(precio);
-        $(".cant" + id2).text("$" + mult);
+        var id= $(this).data('id');
+        incrementar(cantidad,precio,id);
       });
+      $(".btnIncrementar").click(function(){
+     var precio=   $(this).parent('div').parent('div').find('input').data('precio');
+     var id=   $(this).parent('div').parent('div').find('input').data('id');
+     var cantidad=   $(this).parent('div').parent('div').find('input').val();
+     incrementar(cantidad,precio,id);
+      });
+      function incrementar(cantidad,precio,id){
+        var multi = parseFloat(cantidad) * parseFloat(precio);
+        $(".cant" + id).text("$" + mult);
 
+        $.ajax({
+          method: 'POST',
+          url: './modelo/actualizar.php',
+          data: {
+            id: id,
+            cantidad:cantidad
+          }
+        }).done(function(respuesta) {
+        
+
+        });
+      }
     });
   </script>
 </body>
