@@ -53,7 +53,7 @@ $resultado_productos = $conexion->query($query_productos);
                         <?php
                         if (isset($_SESSION['username'])) {
                             ?>
-                                    <a href="#" class="card__button">Comprar ahora</a>
+                                   <a href="cart.php?id_producto=<?php echo $row['id_producto'] ?>" class="card__button">Añadir a carrito</a>
                            <?php  
                         } 
                         

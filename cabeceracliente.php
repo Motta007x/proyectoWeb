@@ -1,5 +1,7 @@
 <?php
 
+
+
 ?>
 
 <header>
@@ -9,7 +11,7 @@
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="cabecerac.php"> Productos </a></li>
                     <li><a href="pedidos.php"> Mis Pedidos </a></li>
-                    <li><a href="ver_carrito.php"> Carrito </a></li>
+                    <li><a href="cart.php"> Carrito </a></li>
                     <li><a href="soporte.php">Soporte</a></li>
                   
                 </ul>

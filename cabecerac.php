@@ -118,7 +118,7 @@ else{
                         <p class="card__description">Modelo: <?php echo ($row['modelo']); ?></p>
                               <p class="card__description">Talla: <?php echo ($row['tipo_talla']); ?></p>
 
-                        <a href="#" class="card__button">Comprar ahora</a>
+                        <a href="cart.php?id_producto=<?php echo $row['id_producto'] ?>" class="card__button">Añadir a carrito</a>
                     </div>
                 </div>
             <?php
