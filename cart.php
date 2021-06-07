@@ -125,20 +125,26 @@ if (isset($_SESSION['carrito'])) {
                         <td class="product-name">
                           <h2 class="h5 text-black"> <?php echo $arregloCarrito[$i]['Nombre']; ?> </h2>
                         </td>
-                        <td> <?php echo $arregloCarrito[$i]['Precio']; ?> </td>
+                        <td> $<?php echo $arregloCarrito[$i]['Precio']; ?> </td>
                         <td>
                           <div class="input-group mb-3" style="max-width: 120px;">
                             <div class="input-group-prepend">
                               <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                             </div>
-                            <input type="text" class="form-control text-center" value=" <?php echo $arregloCarrito[$i]['Cantidad']; ?> " placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+
+                            <!-- Input de las cantidades -->
+                            <input type="text" class="form-control text-center txtCantidad" data-precio="<?php echo $arregloCarrito[$i]['Precio']; ?>" data-id="<?php echo $arregloCarrito[$i]['Id_producto']; ?>" value="<?php echo $arregloCarrito[$i]['Cantidad']; ?> " placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                             <div class="input-group-append">
                               <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                             </div>
                           </div>
 
                         </td>
-                        <td> <?php echo $arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad']; ?> </td>
+                        <!-- Calculo de la cartidad -->
+                        <td class="cant<?php echo $arregloCarrito[$i]['Id_producto']; ?>">
+                          $ <?php echo $arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad']; ?> </td>
+
+                        <!-- Boton eliminarCarrito -->
                         <td><a href="#" class="btn btn-primary btn-sm btnEliminar" data-id=" <?php echo $arregloCarrito[$i]['Id_producto']; ?> ">Eliminar</a></td>
                       </tr>
                   <?php }
@@ -224,21 +230,31 @@ if (isset($_SESSION['carrito'])) {
   <script src="js/main.js"></script>
   <script>
     $(document).ready(function() {
-      $(".btnEliminar").click(function() {
+      $(".btnEliminar").click(function(event) {
         event.preventDefault();
         var id = $(this).data('id');
-        var boton =$(this);
+        var boton = $(this);
         $.ajax({
           method: 'POST',
-          url:'./modelo/eliminarCarrito.php',
-          data:{
-            id:id
+          url: './modelo/eliminarCarrito.php',
+          data: {
+            id: id
           }
-        }).done(function(respuesta){
+        }).done(function(respuesta) {
           boton.parent('td').parent('tr').remove();
 
         });
       });
+
+      $(".txtCantidad").change(function() {
+
+        var cantidad = $(this).val();
+        var precio = $(this).data('precio');
+        var id2 = $(this).data('id');
+        var multi = parseFloat(cantidad) * parseFloat(precio);
+        $(".cant" + id2).text("$" + mult);
+      });
+
     });
   </script>
 </body>
