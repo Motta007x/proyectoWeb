@@ -71,7 +71,7 @@ if (isset($_SESSION['carrito'])) {
 
   <link rel="stylesheet" href="fonts/icomoon/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/stylesnav.css">
+
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/magnific-popup.css">
   <link rel="stylesheet" href="css/jquery-ui.css">
@@ -114,9 +114,12 @@ if (isset($_SESSION['carrito'])) {
                 <tbody>
 
                   <?php
+                  $total=0;
                   if (isset($_SESSION['carrito'])) {
                     $arregloCarrito = $_SESSION['carrito'];
                     for ($i = 0; $i < count($arregloCarrito); $i++) {
+                  $total = $total + ($arreglo[$i]['Precio'] * $arreglo[$i]['Cantidad']);
+                    
                   ?>
                       <tr>
                         <td class="product-thumbnail">
@@ -153,7 +156,10 @@ if (isset($_SESSION['carrito'])) {
                         <!-- Boton eliminarCarrito -->
                         <td><a href="#" class="btn btn-primary btn-sm btnEliminar" data-id=" <?php echo $arregloCarrito[$i]['Id_producto']; ?> ">Eliminar</a></td>
                       </tr>
-                  <?php }
+                  <?php 
+                  }
+                  //cierre de el if y for de sesion 
+
                   } ?>
                 </tbody>
               </table>
@@ -186,7 +192,7 @@ if (isset($_SESSION['carrito'])) {
                   <span class="text-black">Subtotal</span>
                 </div>
                 <div class="col-md-6 text-right">
-                  <strong class="text-black">$230.00</strong>
+                  <strong class="text-black">$<?php echo $total; ?></strong>
                 </div>
               </div>
               <div class="row mb-5">
@@ -194,7 +200,7 @@ if (isset($_SESSION['carrito'])) {
                   <span class="text-black">Total</span>
                 </div>
                 <div class="col-md-6 text-right">
-                  <strong class="text-black">$230.00</strong>
+                  <strong class="text-black">$<?php echo $total; ?></strong>
                 </div>
               </div>
 
@@ -255,7 +261,7 @@ if (isset($_SESSION['carrito'])) {
 
         $.ajax({
           method: 'POST',
-          url: './modelo/actualizar.php',
+          url: './modelo/actualizardelete.php',
           data: {
             id: id,
             cantidad:cantidad

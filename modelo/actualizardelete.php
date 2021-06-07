@@ -8,5 +8,4 @@ for ($i = 0; $i < count($arreglo);$i ++){
         break;
     }
 }
-echo "Listo";
 ?>
