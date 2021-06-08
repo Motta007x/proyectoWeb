@@ -3,7 +3,7 @@
 $server = "localhost";
 $user = "root";
 $pass = "";
-$database = "promay20_csay";
+$database = "csay";
 
 $conexion = mysqli_connect($server, $user, $pass, $database);
 

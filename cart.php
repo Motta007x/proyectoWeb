@@ -16,6 +16,7 @@ if (isset($_SESSION['carrito'])) {
     if ($encontro == true) {
       $arreglo[$numero]['Cantidad'] = $arreglo[$numero]['Cantidad'] + 1;
       $_SESSION['carrito'] = $arreglo;
+      header ("Location: ./cart.php");
     } else {
       // No estaba el registro
       $nombre = "";
@@ -35,6 +36,7 @@ if (isset($_SESSION['carrito'])) {
       );
       array_push($arreglo, $arregloNew);
       $_SESSION['carrito'] = $arreglo;
+      header ("Location: ./cart.php");
     }
   }
 } else {
@@ -55,6 +57,7 @@ if (isset($_SESSION['carrito'])) {
       'Cantidad' => 1
     );
     $_SESSION['carrito'] = $arreglo;
+    header ("Location: ./cart.php");
   }
 }
 
@@ -118,7 +121,7 @@ if (isset($_SESSION['carrito'])) {
                   if (isset($_SESSION['carrito'])) {
                     $arregloCarrito = $_SESSION['carrito'];
                     for ($i = 0; $i < count($arregloCarrito); $i++) {
-                  $total = $total + ($arreglo[$i]['Precio'] * $arreglo[$i]['Cantidad']);
+                  $total = $total + ($arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad']);
                     
                   ?>
                       <tr>
@@ -240,7 +243,7 @@ if (isset($_SESSION['carrito'])) {
           }
         }).done(function(respuesta) {
           boton.parent('td').parent('tr').remove();
-
+          location.reload();
         });
       });
       $(".txtCantidad").keyup(function() {
@@ -255,8 +258,8 @@ if (isset($_SESSION['carrito'])) {
      var cantidad=   $(this).parent('div').parent('div').find('input').val();
      incrementar(cantidad,precio,id);
       });
-      function incrementar(cantidad,precio,id){
-        var multi = parseFloat(cantidad) * parseFloat(precio);
+      function incrementar(cantidad, precio, id){
+        var mult = parseFloat(cantidad) * parseFloat(precio);
         $(".cant" + id).text("$" + mult);
 
         $.ajax({
