@@ -1,24 +1,15 @@
 <?php
-session_start();
-$sesion=$_SESSION['id_usuario'];
 require_once("modelo/config.php");
-$id=$_POST['id'];
-$casa = $_POST['num_casa'];
 
-    $calle = $_POST['calle'];
-    $colonia = $_POST['colonia'];
-    $municipio = $_POST['municipio'];
-    $estado = $_POST['estado'];
+if(isset($_POST["id"])){
 
-    $postal = $_POST['codigo_postal'];
     
-        $sql="UPDATE direccion SET  calle='$calle', num_casa='$casa', colonia='$colonia', municipio='$municipio', estado='$estado', codigo_postal=$postal id_usuario=$sesion WHERE direccion.id_direccion='$id' ";
-        $query=mysqli_query($conexion,$sql);
+   $sql="UPDATE direccion SET calle ='".$_POST['calle']."', num_casa='".$_POST['num_casa']."', colonia='".$_POST['colonia']."', municipio ='".$_POST['municipio']."', estado='".$_POST['estado']."', codigo_postal='".$_POST['codigo_postal']."',id_usuario='".$_POST['id1']."' WHERE id_direccion ='".$_POST['id']."'";
+    $result=mysqli_query($conexion, $sql);
 
-    if($query){
-        Header("Location: direcciones.php");
-    }
-    else{
-        echo "Error";
-    }
+}else{
+    echo "Error";
+}
+header("location: direcciones.php")
 ?>
+ 

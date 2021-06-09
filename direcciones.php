@@ -121,7 +121,7 @@ $sesion=$_SESSION['id_usuario'];
                                     <td><?php echo $data['codigo_postal'] ?></td>
 
                                     <th><a href="actualizardir.php?id=<?php echo $data['id_direccion'] ?>" class="btn btn-info">Editar</a></th>
-                                    <th><a href="delete.php?id=<?php echo $data['id_direccion'] ?>" class="btn btn-danger">Eliminar</a></th>
+                                    <th><a href="deletedirec.php?id=<?php echo $data['id_direccion'] ?>" class="btn btn-danger">Eliminar</a></th>
 
 
                                 </tr>

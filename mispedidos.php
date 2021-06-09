@@ -1,21 +1,20 @@
 <?php
 session_start();
-$sesion=$_SESSION['id_usuario'];
+
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-      <link rel="stylesheet" href="css/stylesnav.css?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="css/stylescategorias.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/stylesadmin.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/stylesnav.css?v=<?php echo time(); ?>">
     <meta name="viewport" content="width =device-width, initial-scale =1" <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Kaushan+Script&family=Secular+One&display=swap" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>Historial de ventas</title>
+    <title>Historial de Pedidos</title>
 </head>
 
 <body>
@@ -57,7 +56,7 @@ $sesion=$_SESSION['id_usuario'];
     </script>
 
   <center>
-            <h1> Historial de ventas </h1><br><br>
+            <h1> Historial de Compras</h1><br><br>
             <div class="form-date">
                 <div class="izquierda">
                     <div>
@@ -98,15 +97,13 @@ $sesion=$_SESSION['id_usuario'];
                      if(isset($_POST['Generar'])){
                         $fecha_inicial = $_POST['fecha_inicio'];
                         $fecha_final = $_POST['fecha_final'];
-
-                    $query = mysqli_query($conexion, "SELECT * FROM venta,pedidos,producto,usuario
-                                WHERE CAST(venta.fecha AS DATE) BETWEEN '".$fecha_inicial."' AND '".$fecha_final."'AND venta.id_venta = pedidos.id_venta AND pedidos.id_producto=producto.id_producto AND venta.id_usuario=$sesion
+                        $sesion=$_SESSION['id_usuario'];
+                    $query = mysqli_query($conexion, "SELECT * FROM venta,usuario,pedidos,producto  WHERE CAST(venta.fecha AS DATE) BETWEEN '".$fecha_inicial."' AND '".$fecha_final."'AND venta.id_venta = pedidos.id_venta AND venta.id_usuario= usuario.id_usuario AND venta.id_usuario=$sesion AND pedidos.id_producto=producto.id_producto
                                   ");
                     $resultado = mysqli_num_rows($query);
-                    if ($resultado) {
+                    if ($resultado>0) {
                         while ($data = mysqli_fetch_array($query)) {
-                    ?>
-                    
+                    ?>        
                             <tr>
                                 <td><?php echo $data['id_venta'] ?></td>
                                 <td><?php echo $data['nombre'] ?></td>
@@ -122,8 +119,6 @@ $sesion=$_SESSION['id_usuario'];
 
                                 <td><?php echo $data['fecha'] ?></td>
                             </tr>
-
-
                     <?php
                         }
                     }
@@ -133,6 +128,14 @@ $sesion=$_SESSION['id_usuario'];
             </table>
         </div>
         </div>
+        <?php
+
+
+        ?>
+         </center>
+</body>
+
+</html>
 
 
 
