@@ -1,13 +1,13 @@
 <?php
-
+session_start();
 require_once("modelo/config.php");
 
-session_start();
+
 
 $sesion=$_SESSION['id_usuario'];
 
 ?>
-
+  
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,14 +35,14 @@ $sesion=$_SESSION['id_usuario'];
                 <form action="insertar_direccion.php" method="POST" enctype="multipart/form-data">
                     <input type="text" placeholder="Calle" name="calle" class="form-control mb-3" required="">
 
-                    <input type="number" placeholder="Numero de casa" class="form-control mb-3" name="precio" required="">
+                    <input type="number" placeholder="Numero de casa" class="form-control mb-3" name="num_casa" required="">
 
                     <input type="text" placeholder="Colonia" name="colonia" class="form-control mb-3" required="">
 
                     <input type="text" placeholder="Municipio" name="municipio" class="form-control mb-3" required="">
 
                     Estado:
-                    <select class="form-control mb-3" name="promo" requiered>
+                    <select class="form-control mb-3" name="estado" requiered>
                        
                         <option value="DIF">Distrito Federal</option>
                         <option value="AGS">Aguascalientes</option>
@@ -80,7 +80,7 @@ $sesion=$_SESSION['id_usuario'];
                     </select>
 
                     <input type="number" placeholder="Codigo postal" class="form-control mb-3" name="codigo_postal" required="">
-                    <input type="hidden" placeholder="id_usuario" name="id" class="form-control mb-3" value="<?php $sesion  ?> ">
+                    <input type="hidden" placeholder="id_usuario" name="id_usuario" class="form-control mb-3" value="<?php echo $sesion  ?> ">
                     <input class="btn btn-primary" type="submit" name="Guardar" value="Guardar">
                 </form>
             </div>
@@ -90,6 +90,7 @@ $sesion=$_SESSION['id_usuario'];
                     <thead class="table-success table-striped">
                         <tr>
                             <th>ID</th>
+                            <th>id_usuario</th>
                             <th>Calle</th>
                             <th>Numero de casa</th>
                             <th>Colonia</th>
@@ -113,6 +114,7 @@ $sesion=$_SESSION['id_usuario'];
 
                                 <tr>
                                     <td><?php echo $data['id_direccion'] ?></td>
+                                    <td><?php echo $data['id_usuario'] ?></td>
                                     <td><?php echo $data['calle'] ?></td>
                                     <td><?php echo $data['num_casa'] ?></td>
                                     <td><?php echo $data['colonia'] ?></td>
@@ -120,7 +122,7 @@ $sesion=$_SESSION['id_usuario'];
                                     <td><?php echo $data['estado'] ?></td>
                                     <td><?php echo $data['codigo_postal'] ?></td>
 
-                                    <th><a href="actualizar.php?id=<?php echo $data['id_direccion'] ?>" class="btn btn-info">Editar</a></th>
+                                    <th><a href="actualizardir.php?id=<?php echo $data['id_direccion'] ?>" class="btn btn-info">Editar</a></th>
                                     <th><a href="delete.php?id=<?php echo $data['id_direccion'] ?>" class="btn btn-danger">Eliminar</a></th>
 
 
