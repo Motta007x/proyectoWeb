@@ -70,17 +70,11 @@ $sesion = $_SESSION['id_usuario'];
                 }
                 else{
                     echo "Agregue una direcci&oacuten por favor";
-<<<<<<< HEAD
                     
                 }
               ?>
               </label>
               <a class="btn btn-primary" href="direcciones.php" role="button">Agregar Direcci&oacuten</a>
-=======
-                }
-              ?>
-              </label>
->>>>>>> e2369edd11b2f20de06261efa5f01a5dc6e07d4e
               
             </div>
 
@@ -101,11 +95,7 @@ $sesion = $_SESSION['id_usuario'];
               <div class="form-group row mb-5">
             
                <div class="col-md-6 mb-3 mb-md-0">
-<<<<<<< HEAD
                   <!--a href="direcciones.php" class="btn btn-primary btn-sm">Agregar Direcci&oacuten</a-->
-=======
-                  <a href="direcciones.php" class="btn btn-primary btn-sm">Agregar Direcci&oacuten</a>
->>>>>>> e2369edd11b2f20de06261efa5f01a5dc6e07d4e
                 </div>
               </div>
 
