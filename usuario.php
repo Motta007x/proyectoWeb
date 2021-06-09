@@ -26,7 +26,7 @@ if (isset($_SESSION['username'])) {
         
         <?php 
             include_once ("cabeceracliente.php");
-          include_once ("aside.html");
+          include_once ("aside.php");
           include_once ("promos.php");
           include_once ("footer.html");
         ?>
