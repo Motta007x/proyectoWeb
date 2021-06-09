@@ -249,8 +249,12 @@ if (isset($_SESSION['carrito'])) {
         }).done(function(respuesta) {
              alert ('Lleg¨® al remove'+ id);
           boton.parent('td').parent('tr').remove();
+<<<<<<< HEAD
           location.reload();
           alert ('Paso'+ id);
+=======
+         // location.reload();
+>>>>>>> e2369edd11b2f20de06261efa5f01a5dc6e07d4e
           alert   (respuesta);
         });
       });
