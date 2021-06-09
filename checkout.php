@@ -1,9 +1,12 @@
 <?php
+require_once("modelo/config.php");
 session_start();
 if (!isset($_SESSION['carrito'])) {
   header('location: ./index.php');
 }
 $arreglo = $_SESSION['carrito'];
+$sesion = $_SESSION['id_usuario'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,65 +33,67 @@ $arreglo = $_SESSION['carrito'];
   <link rel="stylesheet" href="css/stylestarjeta.css?v=<?php echo time(); ?>">
 
 </head>
-
+<?php include("cabeceracliente.php"); ?>
 <body>
 
   <div class="site-wrap">
-    <?php include("cabeceracliente.php"); ?>
 
     <div class="site-section">
       <div class="container">
 
         <div class="row">
           <div class="col-md-6 mb-5 mb-md-0">
-            <h2 class="h3 mb-3 text-black">Detalles de Compra</h2>
+            <h2 class="h3 mb-3 text-black">Selecciona una direccion</h2>
             <div class="p-3 p-lg-5 border">
               <div class="form-group">
-                <label for="c_country" class="text-black">País <span class="text-danger">*</span></label>
-                <select id="c_country" class="form-control">
-                  <option value="1">México</option>
+              
+              <div class="form-check"><?php
+                        $query = mysqli_query($conexion, "SELECT * FROM direccion, usuario
+                                WHERE direccion.id_usuario=$sesion AND direccion.id_usuario = usuario.id_usuario 
+                                  ");
+                        $resultado = mysqli_num_rows($query);
+                        if ($resultado > 0) {
+                            while ($data = mysqli_fetch_array($query)) {
 
-                </select>
+              ?>
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" required>
+              <label class="form-check-label" for="flexRadioDefault1" required>
+              <label> <strong> Calle: </strong> <?php echo $data['calle'] ?>  </label> 
+              <label> <strong> #: </strong> <?php echo $data['num_casa'] ?>  </label> <br>
+              <label> <strong> Colonia: </strong> <?php echo $data['colonia'] ?>  </label> <br>
+              <label> <strong> Municipio: </strong> <?php echo $data['municipio'] ?>  </label> <br>
+              <label> <strong> Estado: </strong> <?php echo $data['estado'] ?>  </label> <br>
+              <label> <strong> CP: </strong> <?php echo $data['codigo_postal'] ?>  </label>
+              <hr style="border-color:blue;">
+              <?php
+                  }
+                }
+                else{
+                    echo "Agregue una direcci&oacuten por favor";
+                }
+              ?>
+              </label>
+              
+            </div>
+
               </div>
-              <div class="form-group row">
-                <div class="col-md-6">
-                  <label for="c_fname" class="text-black">Nombre <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_fname" name="c_fname">
-                </div>
-                <div class="col-md-6">
-                  <label for="c_lname" class="text-black">Apellido <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_lname" name="c_lname">
-                </div>
+              <div class="form-group row">                
               </div>
 
 
 
               <div class="form-group row">
-                <div class="col-md-12">
-                  <label for="c_address" class="text-black">Dirección <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_address" name="c_address" placeholder="Av. ">
-                </div>
+                
               </div>
 
               <div class="form-group row">
-                <div class="col-md-6">
-                  <label for="c_state_country" class="text-black">Estado<span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_state_country" name="c_state_country">
-                </div>
-                <div class="col-md-6">
-                  <label for="c_postal_zip" class="text-black">Codigo Postal <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_postal_zip" name="c_postal_zip">
-                </div>
+                
               </div>
 
               <div class="form-group row mb-5">
-                <div class="col-md-6">
-                  <label for="c_email_address" class="text-black">Email <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_email_address" name="c_email_address">
-                </div>
-                <div class="col-md-6">
-                  <label for="c_phone" class="text-black">Número de Teléfono <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_phone" name="c_phone" placeholder="(+52)">
+            
+               <div class="col-md-6 mb-3 mb-md-0">
+                  <a href="direcciones.php" class="btn btn-primary btn-sm">Agregar Direcci&oacuten</a>
                 </div>
               </div>
 
@@ -185,7 +190,7 @@ $arreglo = $_SESSION['carrito'];
                   </button>
                 </div>
 
-                <!-- Formulario -->
+                    <!-- Formulario -->
                 <form action="thankyou.php" id="formulario-tarjeta" class="formulario-tarjeta">
                   <div class="grupo">
                     <label for="inputNumero">Número Tarjeta</label>
@@ -238,6 +243,25 @@ $arreglo = $_SESSION['carrito'];
         <!-- </form> -->
       </div>
     </div>
+
+    <script type="text/javascript">
+            function validate(){
+                var numc=document.getElementById('inputNumero').value;
+                if(!/^[0-9]+$/.test(numc)){
+                    alert("Solo se pueden ingresar numeros");
+                    return false; 
+                }
+                if(phone.length>16){
+                    alert("La tarjeta debe ser de 16 caracteres");
+                    return false; 
+                }
+                if(phone.length<10){
+                    alert("La tarjeta debe ser de 10 caracteres");
+                    return false;
+                }
+            return true;
+            }
+        </script>
 
     <?php include("footer.html"); ?>
   </div>

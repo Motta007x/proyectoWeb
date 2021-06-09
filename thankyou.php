@@ -10,7 +10,7 @@ $total = 0;
 for($i=0; $i<count($arreglo);$i++){
   $total = $total + ($arreglo[$i]['Precio'] * $arreglo[$i]['Cantidad']);
 }
-$fecha = date('Y-m-d');
+$fecha = date('Y-m-d h:m:s');
 $conexion -> query("INSERT INTO venta(id_usuario, total, fecha) VALUES ($sesion, $total, '$fecha' )") or die($conexion->error);
 $id_venta = $conexion -> insert_id;
 for($i=0; $i<count($arreglo);$i++){
@@ -21,6 +21,9 @@ for($i=0; $i<count($arreglo);$i++){
   ".$arreglo[$i]['Precio'].",
   ".$arreglo[$i]['Cantidad'] * $arreglo[$i]['Precio']. "
   ) ") or die($conexion->error);
+
+$conexion-> query("UPDATE producto SET cantidad_existente= cantidad_existente-".$arreglo[$i]['Cantidad']." WHERE id_producto=".$arreglo[$i]['Id_producto']." ") or die($conexion->error);
+
 }
 unset($_SESSION['carrito']);
 ?>
