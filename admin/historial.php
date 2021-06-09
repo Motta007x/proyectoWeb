@@ -1,14 +1,12 @@
 <?php
 session_start();
-$sesion=$_SESSION['id_usuario'];
+
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-      <link rel="stylesheet" href="css/stylesnav.css?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="css/stylescategorias.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="css/stylesadmin.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/stylesadmin.css?v=<?php echo time(); ?>">
     <meta name="viewport" content="width =device-width, initial-scale =1" <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Kaushan+Script&family=Secular+One&display=swap" rel="stylesheet">
 
@@ -22,9 +20,9 @@ $sesion=$_SESSION['id_usuario'];
 
     <?php
 
-    include_once("cabeceracliente.php");
+    include_once("../cabeceradmin.html");
 
-    require_once("modelo/config.php");
+    require_once("../modelo/config.php");
 
     ?>
     <script type="text/javascript">
@@ -99,8 +97,8 @@ $sesion=$_SESSION['id_usuario'];
                         $fecha_inicial = $_POST['fecha_inicio'];
                         $fecha_final = $_POST['fecha_final'];
 
-                    $query = mysqli_query($conexion, "SELECT * FROM venta,pedidos,producto,usuario
-                                WHERE CAST(venta.fecha AS DATE) BETWEEN '".$fecha_inicial."' AND '".$fecha_final."'AND venta.id_venta = pedidos.id_venta AND pedidos.id_producto=producto.id_producto AND venta.id_usuario=$sesion
+                    $query = mysqli_query($conexion, "SELECT * FROM venta,pedidos,producto
+                                WHERE CAST(venta.fecha AS DATE) BETWEEN '".$fecha_inicial."' AND '".$fecha_final."'AND venta.id_venta = pedidos.id_venta AND pedidos.id_producto=producto.id_producto
                                   ");
                     $resultado = mysqli_num_rows($query);
                     if ($resultado) {
@@ -116,7 +114,7 @@ $sesion=$_SESSION['id_usuario'];
 
                                 <td>
                                     <?php
-                                    echo "<img width='100' height='100' src='img_productos/" . $data['imagen'] . "'>"
+                                    echo "<img width='100' height='100' src='../img_productos/" . $data['imagen'] . "'>"
                                     ?>
                                 </td>
 
@@ -138,13 +136,10 @@ $sesion=$_SESSION['id_usuario'];
 
 
 
-        
+        <?php
 
-<?php 
-    include_once("footer.html");
-?>
 
-       
+        ?>
          </center>
 </body>
 

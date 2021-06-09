@@ -36,7 +36,7 @@ if (isset($_SESSION['carrito'])) {
       );
       array_push($arreglo, $arregloNew);
       $_SESSION['carrito'] = $arreglo;
-      header ("Location: ./cart.php");
+     header ("Location: ./cart.php");
     }
   }
 } else {
@@ -57,7 +57,7 @@ if (isset($_SESSION['carrito'])) {
       'Cantidad' => 1
     );
     $_SESSION['carrito'] = $arreglo;
-    header ("Location: ./cart.php");
+   header ("Location: ./cart.php");
   }
 }
 
@@ -72,7 +72,7 @@ if (isset($_SESSION['carrito'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -174,10 +174,10 @@ if (isset($_SESSION['carrito'])) {
             <div class="col-md-6">
               <div class="row mb-5">
                 <div class="col-md-6 mb-3 mb-md-0">
-                  <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
+                  <a href="cart.php" class="btn btn-primary btn-sm">Actualizar carrito</a>
                 </div>
                 <div class="col-md-6">
-                  <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
+                  <a href="cabecerac.php" class="btn btn-outline-primary btn-sm">Continuar comprando</a>
                 </div>
               </div>
               </center>
@@ -187,7 +187,7 @@ if (isset($_SESSION['carrito'])) {
             <div class="col-md-7">
               <div class="row">
                 <div class="col-md-12 text-right border-bottom mb-5">
-                  <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
+                  <h3 class="text-black h4 text-uppercase">Total de carrito</h3>
                 </div>
               </div>
               <div class="row mb-3">
@@ -209,7 +209,7 @@ if (isset($_SESSION['carrito'])) {
 
               <div class="row">
                 <div class="col-md-12">
-                  <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.php'">Proceed To Checkout</button>
+                  <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.php'">Realizar pedido</button>
                 </div>
               </div>
             </div>
@@ -237,13 +237,14 @@ if (isset($_SESSION['carrito'])) {
         var boton = $(this);
         $.ajax({
           method: 'POST',
-          url: './modelo/eliminarCarrito.php',
+          url: "./modelo/eliminarCarrito.php",
           data: {
             id: id
           }
         }).done(function(respuesta) {
           boton.parent('td').parent('tr').remove();
-          location.reload();
+         // location.reload();
+          alert   (respuesta);
         });
       });
       $(".txtCantidad").keyup(function() {
@@ -271,7 +272,6 @@ if (isset($_SESSION['carrito'])) {
           }
         }).done(function(respuesta) {
         
-
         });
       }
     });

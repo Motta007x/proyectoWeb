@@ -13,21 +13,21 @@ $arreglo = $_SESSION['carrito'];
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
+  <script src="https://kit.fontawesome.com/b965409e0d.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Kaushan+Script&family=Secular+One&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="css/magnific-popup.css">
   <link rel="stylesheet" href="css/jquery-ui.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/owl.carousel.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="css/stylesnav.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="css/stylescategorias.css?v=<?php echo time(); ?>">
 
-
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/aos.css">
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/stylestarjeta.css?v=<?php echo time(); ?>">
 
 </head>
 
@@ -38,7 +38,7 @@ $arreglo = $_SESSION['carrito'];
 
     <div class="site-section">
       <div class="container">
-        
+
         <div class="row">
           <div class="col-md-6 mb-5 mb-md-0">
             <h2 class="h3 mb-3 text-black">Detalles de Compra</h2>
@@ -47,7 +47,7 @@ $arreglo = $_SESSION['carrito'];
                 <label for="c_country" class="text-black">País <span class="text-danger">*</span></label>
                 <select id="c_country" class="form-control">
                   <option value="1">México</option>
-           
+
                 </select>
               </div>
               <div class="form-group row">
@@ -61,7 +61,7 @@ $arreglo = $_SESSION['carrito'];
                 </div>
               </div>
 
-        
+
 
               <div class="form-group row">
                 <div class="col-md-12">
@@ -111,63 +111,129 @@ $arreglo = $_SESSION['carrito'];
                       $total = 0;
                       for ($i = 0; $i < count($arreglo); $i++) {
                         $total = $total + ($arreglo[$i]['Precio'] * $arreglo[$i]['Cantidad']);
-                    
+
+
+                      ?>
+                        <tr>
+                          <td><?php echo $arreglo[$i]['Nombre']; ?></td>
+                          <td>$<?php echo number_format($arreglo[$i]['Precio'], 2, '.', ''); ?></td>
+                        </tr>
+                      <?php
+                      }
 
                       ?>
                       <tr>
-                        <td><?php echo $arreglo[$i]['Nombre'];?></td>
-                        <td>$<?php echo number_format($arreglo[$i]['Precio'], 2, '.', ''); ?></td>
-                      </tr>
-                      <?php
-                      }
-                      
-                      ?>
-                      <tr>
-                      <td>Total de Orden</td>
-                      <td> $<?php echo number_format($total, 2, '.', '');?></td>
+                        <td>Total de Orden</td>
+                        <td> $<?php echo number_format($total, 2, '.', ''); ?></td>
                       </tr>
                     </tbody>
                   </table>
+                </div>
+              </div>
+              
+          </div>
+              <div class="contenedorTarjeta">
 
-                  <div class="border p-3 mb-3">
-                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsebank" role="button" aria-expanded="false" aria-controls="collapsebank">Direct Bank Transfer</a></h3>
+                <!-- Tarjeta -->
+                <div class="tarjeta" id="tarjeta">
+                  <div class="delantera">
+                    <div class="logo-marca" id="logo-marca">
 
-                    <div class="collapse" id="collapsebank">
-                      <div class="py-2">
-                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                    </div>
+                    <img src="img/chip-tarjeta.png" class="chip" alt="">
+                    <div class="datos">
+                      <div class="grupo" id="numero">
+                        <p class="label">Número Tarjeta</p>
+                        <p class="numero">#### #### #### ####</p>
+                      </div>
+                      <div class="flexbox">
+                        <div class="grupo" id="nombre">
+                          <p class="label">Nombre Tarjeta</p>
+                          <p class="nombre">Nombre Apellido</p>
+                        </div>
+
+                        <div class="grupo" id="expiracion">
+                          <p class="label">Expiracion</p>
+                          <p class="expiracion"><span class="mes">MM</span> / <span class="year">AA</span></p>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="border p-3 mb-3">
-                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsecheque" role="button" aria-expanded="false" aria-controls="collapsecheque">Cheque Payment</a></h3>
-
-                    <div class="collapse" id="collapsecheque">
-                      <div class="py-2">
-                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                  <div class="trasera">
+                    <div class="barra-magnetica"></div>
+                    <div class="datos">
+                      <div class="grupo" id="firma">
+                        <p class="label">Firma</p>
+                        <div class="firma">
+                          <p></p>
+                        </div>
+                      </div>
+                      <div class="grupo" id="ccv">
+                        <p class="label">CCV</p>
+                        <p class="ccv"></p>
                       </div>
                     </div>
+                    <p class="leyenda">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus exercitationem, voluptates illo.</p>
                   </div>
+                </div>
 
-                  <div class="border p-3 mb-5">
-                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsepaypal" role="button" aria-expanded="false" aria-controls="collapsepaypal">Paypal</a></h3>
+                <!-- Contenedor Boton Abrir Formulario -->
+                <div class="contenedor-btn">
+                  <button class="btn-abrir-formulario" id="btn-abrir-formulario">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
 
-                    <div class="collapse" id="collapsepaypal">
-                      <div class="py-2">
-                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                <!-- Formulario -->
+                <form id="formulario-tarjeta" class="formulario-tarjeta">
+                  <div class="grupo">
+                    <label for="inputNumero">Número Tarjeta</label>
+                    <input type="text" id="inputNumero" maxlength="19" autocomplete="off" require="">
+                  </div>
+                  <div class="grupo">
+                    <label for="inputNombre">Nombre</label>
+                    <input type="text" id="inputNombre" maxlength="19" autocomplete="off" require="">
+                  </div>
+                  <div class="flexbox">
+                    <div class="grupo expira">
+                      <label for="selectMes">Expiracion</label>
+                      <div class="flexbox">
+                        <div class="grupo-select">
+                          <select name="mes" id="selectMes" require="">
+                            <option disabled selected>Mes</option>
+                          </select>
+                          <i class="fas fa-angle-down"></i>
+                        </div>
+                        <div class="grupo-select">
+                          <select name="year" id="selectYear" require="">
+                            <option disabled selected>Año</option>
+                          </select>
+                          <i class="fas fa-angle-down"></i>
+                        </div>
                       </div>
+                    </div>
+
+                    <div class="grupo ccv">
+                      <label for="inputCCV">CCV</label>
+                      <input type="text" id="inputCCV" maxlength="3" require="">
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='thankyou.php'">Realizar Pedido</button>
-                  </div>
 
+                  <a href="thankyou.php" class="btn btn-primary btn-lg py-3 btn-block"  >Realizar Pedido</a>
                 </div>
+                </form>
+                
               </div>
-            </div>
 
-          </div>
+
+              </div>
+
+            
+
+
         </div>
         <!-- </form> -->
       </div>
@@ -175,7 +241,7 @@ $arreglo = $_SESSION['carrito'];
 
     <?php include("footer.html"); ?>
   </div>
-
+  <script src="js/mainTarjeta.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/popper.min.js"></script>
