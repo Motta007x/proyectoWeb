@@ -2,8 +2,6 @@
 session_start();
 require_once("modelo/config.php");
 
-
-
 $sesion=$_SESSION['id_usuario'];
 
 ?>
@@ -44,38 +42,38 @@ $sesion=$_SESSION['id_usuario'];
                     Estado:
                     <select class="form-control mb-3" name="estado" requiered>
                        
-                        <option value="DIF">Distrito Federal</option>
-                        <option value="AGS">Aguascalientes</option>
-                        <option value="BCN">Baja California</option>
-                        <option value="BCS">Baja California Sur</option>
-                        <option value="CAM">Campeche</option>
-                        <option value="CHP">Chiapas</option>
-                        <option value="CHI">Chihuahua</option>
-                        <option value="COA">Coahuila</option>
-                        <option value="COL">Colima</option>
-                        <option value="DUR">Durango</option>
-                        <option value="GTO">Guanajuato</option>
-                        <option value="GRO">Guerrero</option>
-                        <option value="HGO">Hidalgo</option>
-                        <option value="JAL">Jalisco</option>
-                        <option value="MEX">M&eacute;xico</option>
-                        <option value="MIC">Michoac&aacute;n</option>
-                        <option value="MOR">Morelos</option>
-                        <option value="NAY">Nayarit</option>
-                        <option value="NLE">Nuevo Le&oacute;n</option>
-                        <option value="OAX">Oaxaca</option>
-                        <option value="PUE">Puebla</option>
-                        <option value="QRO">Quer&eacute;taro</option>
-                        <option value="ROO">Quintana Roo</option>
-                        <option value="SLP">San Luis Potos&iacute;</option>
-                        <option value="SIN">Sinaloa</option>
-                        <option value="SON">Sonora</option>
-                        <option value="TAB">Tabasco</option>
-                        <option value="TAM">Tamaulipas</option>
-                        <option value="TLX">Tlaxcala</option>
-                        <option value="VER">Veracruz</option>
-                        <option value="YUC">Yucat&aacute;n</option>
-                        <option value="ZAC">Zacatecas</option>
+                    <option value="CDMX">CDMX</option>
+                        <option value="Aguascalientes">Aguascalientes</option>
+                        <option value="Baja California">Baja California</option>
+                        <option value="Baja California Sur">Baja California Sur</option>
+                        <option value="Campeche">Campeche</option>
+                        <option value="Chiapas">Chiapas</option>
+                        <option value="Chihuhua">Chihuahua</option>
+                        <option value="Coahuila">Coahuila</option>
+                        <option value="Colima">Colima</option>
+                        <option value="Durango">Durango</option>
+                        <option value="Guanajuato">Guanajuato</option>
+                        <option value="Guerrero">Guerrero</option>
+                        <option value="Hidalgo">Hidalgo</option>
+                        <option value="Jalisco">Jalisco</option>
+                        <option value="Mexico">M&eacute;xico</option>
+                        <option value="Michiacan">Michoac&aacute;n</option>
+                        <option value="Morelos">Morelos</option>
+                        <option value="Nayarit">Nayarit</option>
+                        <option value="Nuevo Leon">Nuevo Le&oacute;n</option>
+                        <option value="Oaxaca">Oaxaca</option>
+                        <option value="Puebla">Puebla</option>
+                        <option value="Queretaro">Quer&eacute;taro</option>
+                        <option value="Quintana Roo">Quintana Roo</option>
+                        <option value="San Luis Potosi">San Luis Potos&iacute;</option>
+                        <option value="Sinaloa">Sinaloa</option>
+                        <option value="Sonora">Sonora</option>
+                        <option value="Tabasco">Tabasco</option>
+                        <option value="Tamaulipas">Tamaulipas</option>
+                        <option value="Tlaxcala">Tlaxcala</option>
+                        <option value="Veracruz">Veracruz</option>
+                        <option value="Yucatan">Yucat&aacute;n</option>
+                        <option value="Zacatecas">Zacatecas</option>
 
                     </select>
 
@@ -104,12 +102,12 @@ $sesion=$_SESSION['id_usuario'];
                         <?php
 
                         $query = mysqli_query($conexion, "SELECT * FROM direccion, usuario
-                                WHERE direccion.id_usuario = usuario.id_usuario
+                                WHERE direccion.id_usuario=$sesion AND direccion.id_usuario = usuario.id_usuario 
                                   ");
                         $resultado = mysqli_num_rows($query);
                         if ($resultado > 0) {
                             while ($data = mysqli_fetch_array($query)) {
-                            $id_usuario = $data['id_usuario'];
+                            
                         ?>
 
                                 <tr>

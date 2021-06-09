@@ -3,7 +3,7 @@
 require_once("../modelo/config.php");
 $id=$_POST['id'];
 $nombre = $_POST['nombre'];
-    $modelo = $_POST['modelo'];
+    $modelo = $_POST['modelo'];  
     $precio = $_POST['precio'];
     $stock = $_POST['stock'];
 
