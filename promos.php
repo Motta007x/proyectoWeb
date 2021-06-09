@@ -3,7 +3,7 @@ require_once("modelo/config.php");
 
 $query_productos = "SELECT * FROM producto,tallas
                                 WHERE  producto.id_tallas = tallas.id_tallas AND promo='SI'
-                                  ";
+                                 AND producto.cantidad_existente>0 ";
 $resultado_productos = $conexion->query($query_productos);
 
 ?>

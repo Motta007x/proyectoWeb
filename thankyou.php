@@ -10,6 +10,7 @@ $total = 0;
 for($i=0; $i<count($arreglo);$i++){
   $total = $total + ($arreglo[$i]['Precio'] * $arreglo[$i]['Cantidad']);
 }
+
 $fecha = date('Y-m-d h:m:s');
 $conexion -> query("INSERT INTO venta(id_usuario, total, fecha) VALUES ($sesion, $total, '$fecha' )") or die($conexion->error);
 $id_venta = $conexion -> insert_id;

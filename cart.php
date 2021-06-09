@@ -154,10 +154,10 @@ if (isset($_SESSION['carrito'])) {
                         </td>
                         <!-- Calculo de la cartidad -->
                         <td class="cant<?php echo $arregloCarrito[$i]['Id_producto']; ?>">
-                           <?php echo $arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad']; ?> </td>
+                           <?php echo $arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad'];?> </td>
 
                         <!-- Boton eliminarCarrito -->
-                        <td><a href="#" class="btn btn-primary btn-sm btnEliminar" data-id=" <?php echo $arregloCarrito[$i]['Id_producto']; ?> ">Eliminar</a></td>
+                        <td><a href="#" class="btn btn-primary btn-sm btnEliminar" data-id="<?php echo $arregloCarrito[$i]['Id_producto'];?>">Eliminar</a></td>
                       </tr>
                   <?php 
                   }
@@ -170,6 +170,9 @@ if (isset($_SESSION['carrito'])) {
           </form>
         </div>
         <center>
+            <div class="alert alert-primary" role="alert">
+  Para actualizar el total del carrito pulse el bot&oacuten.
+</div>
           <div class="row">
             <div class="col-md-6">
               <div class="row mb-5">
@@ -180,6 +183,7 @@ if (isset($_SESSION['carrito'])) {
                   <a href="cabecerac.php" class="btn btn-outline-primary btn-sm">Continuar comprando</a>
                 </div>
               </div>
+              
               </center>
  
         <div class="col-md-6 pl-5">
@@ -195,7 +199,7 @@ if (isset($_SESSION['carrito'])) {
                   <span class="text-black">Subtotal</span>
                 </div>
                 <div class="col-md-6 text-right">
-                  <strong class="text-black">$<?php echo $total; ?></strong>
+                  <strong class="text-black">$<?php echo $total;?></strong>
                 </div>
               </div>
               <div class="row mb-5">
@@ -203,7 +207,7 @@ if (isset($_SESSION['carrito'])) {
                   <span class="text-black">Total</span>
                 </div>
                 <div class="col-md-6 text-right">
-                  <strong class="text-black">$<?php echo $total; ?></strong>
+                  <strong class="text-black">$<?php echo $total;?></strong>
                 </div>
               </div>
 
@@ -234,6 +238,7 @@ if (isset($_SESSION['carrito'])) {
       $(".btnEliminar").click(function(event) {
         event.preventDefault();
         var id = $(this).data('id');
+        alert ('Lleg¨® id eliminar'+ id);
         var boton = $(this);
         $.ajax({
           method: 'POST',
@@ -242,8 +247,14 @@ if (isset($_SESSION['carrito'])) {
             id: id
           }
         }).done(function(respuesta) {
+             alert ('Lleg¨® al remove'+ id);
           boton.parent('td').parent('tr').remove();
+<<<<<<< HEAD
+          location.reload();
+          alert ('Paso'+ id);
+=======
          // location.reload();
+>>>>>>> e2369edd11b2f20de06261efa5f01a5dc6e07d4e
           alert   (respuesta);
         });
       });
