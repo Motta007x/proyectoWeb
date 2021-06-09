@@ -18,14 +18,6 @@ if(isset($arregloNuevo)){
 $_SESSION['carrito']=$arregloNuevo;
 }
 else{
-    $arregloNuevo[]= array(
-'Id_producto' => $arreglo[$i][0],
-'Nombre' => $arreglo[$i][0],
-'Precio' => $arreglo[$i][0],
-'Imagen' => $arreglo[$i][0],
-'Cantidad' => $arreglo[$i][0]
-
-);
     
     
     //quiere edecir que el registro al finla es el unico que habia 
