@@ -186,27 +186,27 @@ $arreglo = $_SESSION['carrito'];
                 </div>
 
                 <!-- Formulario -->
-                <form id="formulario-tarjeta" class="formulario-tarjeta">
+                <form action="thankyou.php" id="formulario-tarjeta" class="formulario-tarjeta">
                   <div class="grupo">
                     <label for="inputNumero">Número Tarjeta</label>
-                    <input type="text" id="inputNumero" maxlength="19" autocomplete="off" require="">
+                    <input type="text" id="inputNumero" maxlength="19" autocomplete="off" required>
                   </div>
                   <div class="grupo">
                     <label for="inputNombre">Nombre</label>
-                    <input type="text" id="inputNombre" maxlength="19" autocomplete="off" require="">
+                    <input type="text" id="inputNombre" maxlength="19" autocomplete="off" required>
                   </div>
                   <div class="flexbox">
                     <div class="grupo expira">
                       <label for="selectMes">Expiracion</label>
                       <div class="flexbox">
                         <div class="grupo-select">
-                          <select name="mes" id="selectMes" require="">
+                          <select name="mes" id="selectMes" required>
                             <option disabled selected>Mes</option>
                           </select>
                           <i class="fas fa-angle-down"></i>
                         </div>
                         <div class="grupo-select">
-                          <select name="year" id="selectYear" require="">
+                          <select name="year" id="selectYear" required>
                             <option disabled selected>Año</option>
                           </select>
                           <i class="fas fa-angle-down"></i>
@@ -216,13 +216,13 @@ $arreglo = $_SESSION['carrito'];
 
                     <div class="grupo ccv">
                       <label for="inputCCV">CCV</label>
-                      <input type="text" id="inputCCV" maxlength="3" require="">
+                      <input type="text" id="inputCCV" maxlength="3" required>
                     </div>
                   </div>
 
                   <div class="form-group">
-
-                  <a href="thankyou.php" class="btn btn-primary btn-lg py-3 btn-block"  >Realizar Pedido</a>
+                  <button type="submit" class="btn btn-primary btn-lg py-3 btn-block">Pagar</button>
+                 
                 </div>
                 </form>
                 

@@ -32,11 +32,11 @@ $row = mysqli_fetch_array($query);
    
     <div class="container mt-5 ">
         
-            <div class="col-md-3">
+            <div class="col-md-3 agregar">
                 <h1>Actualizar direcci&oacuten</h1>
                 <form action="update_dir.php" method="POST" enctype="multipart/form-data">
 
-
+                <input type="hidden" placeholder="id_usuario" name="id1" class="form-control mb-3" value="<?php echo $row['id_usuario']  ?> ">
                 <input type="hidden" placeholder="id_direccion" name="id" class="form-control mb-3" value="<?php echo $row['id_direccion']  ?> ">
                     <input type="text" placeholder="Calle" name="calle" class="form-control mb-3"  value="<?php echo $row['calle']  ?>" >
 
@@ -52,7 +52,7 @@ $row = mysqli_fetch_array($query);
                     Estado:
                     <select class="form-control mb-3" name="estado"   value="<?php echo $row['estado']  ?>">
                        
-                        <option value="CDMX">CDMX</option>
+                    <option value="CDMX">CDMX</option>
                         <option value="Aguascalientes">Aguascalientes</option>
                         <option value="Baja California">Baja California</option>
                         <option value="Baja California Sur">Baja California Sur</option>
