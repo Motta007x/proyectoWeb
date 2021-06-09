@@ -10,12 +10,12 @@ body{
 }
 
 .opciones{
-    width: 500px;
+    width:700px;
    background-color: #528dfb;
    margin: auto;
    border-radius: 1rem;
    display: grid;
-   grid-template-columns: repeat(2,1fr);
+   grid-template-columns: repeat(3,1fr);
    padding: 2rem;
    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.644);
    margin-bottom: 2rem;
@@ -56,8 +56,14 @@ body{
     text-align: center;
     padding: 1rem;
 }
+.texto_admin{
+    margin: auto;
+    text-align: center;
+    padding: 2rem;
+    font-size:2rem;
+    color:#24252a;}
 .footer{
-    height: 100px;
+    height: 200px;
     background-color:#24252a ;
 }
 .agregar{

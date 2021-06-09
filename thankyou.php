@@ -2,12 +2,7 @@
 session_start();
 include_once("modelo/config.php");
 
-$sql = "SELECT * FROM usuario";
-	$result = mysqli_query($conexion, $sql);
-	if ($result->num_rows > 0){
-    $row = mysqli_fetch_assoc($result);
-    $_SESSION['id_usuario'] = $row['id_usuario'];
-  }
+$sesion=$_SESSION['id_usuario'];
 
 if(!isset($_SESSION['carrito'])){ header("Location: ./cabecerac.php");}
 $arreglo = $_SESSION['carrito'];
@@ -15,8 +10,9 @@ $total = 0;
 for($i=0; $i<count($arreglo);$i++){
   $total = $total + ($arreglo[$i]['Precio'] * $arreglo[$i]['Cantidad']);
 }
+
 $fecha = date('Y-m-d h:m:s');
-$conexion -> query("INSERT INTO venta(id_usuario, total, fecha) VALUES ($_SESSION[id_usuario], $total, '$fecha' )") or die($conexion->error);
+$conexion -> query("INSERT INTO venta(id_usuario, total, fecha) VALUES ($sesion, $total, '$fecha' )") or die($conexion->error);
 $id_venta = $conexion -> insert_id;
 for($i=0; $i<count($arreglo);$i++){
   $conexion -> query("INSERT INTO pedidos (id_venta, id_producto, cantidad, precio, subtotal)
@@ -26,6 +22,9 @@ for($i=0; $i<count($arreglo);$i++){
   ".$arreglo[$i]['Precio'].",
   ".$arreglo[$i]['Cantidad'] * $arreglo[$i]['Precio']. "
   ) ") or die($conexion->error);
+
+$conexion-> query("UPDATE producto SET cantidad_existente= cantidad_existente-".$arreglo[$i]['Cantidad']." WHERE id_producto=".$arreglo[$i]['Id_producto']." ") or die($conexion->error);
+
 }
 unset($_SESSION['carrito']);
 ?>

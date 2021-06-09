@@ -5,12 +5,12 @@ $query = mysqli_query($conexion, "SELECT * FROM categorias");
 if (isset($_GET['id_categoria'])) {
     $id_categoria = $_GET['id_categoria'];
     $query_productos = "SELECT * FROM producto,tallas
-                                WHERE id_categoria= $id_categoria AND  producto.id_tallas = tallas.id_tallas
+                                WHERE id_categoria= $id_categoria AND  producto.id_tallas = tallas.id_tallas AND producto.cantidad_existente>0
                                   ";
   $resultado_productos = $conexion->query($query_productos);
 }
 else{
-    $query_productos = "SELECT * FROM producto,tallas where producto.id_tallas = tallas.id_tallas";
+    $query_productos = "SELECT * FROM producto,tallas where producto.id_tallas = tallas.id_tallas AND producto.cantidad_existente>0";
     $resultado_productos = $conexion->query($query_productos);
 }
 

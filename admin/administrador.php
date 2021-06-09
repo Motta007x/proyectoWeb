@@ -39,8 +39,8 @@ include_once("../cabeceradmin.html");
             <p class="menu cta">Menu</p>
         </header>
 
-    <h2 class="texto"> Bienvenido Administrador
-    </h2>
+    <p class="texto_admin"> Bienvenido Administrador
+    </p>
 
     <section class="opciones">
 
@@ -57,21 +57,9 @@ include_once("../cabeceradmin.html");
                 <h3>Productos</h3>
             </a>
         </div>
-        <div class="seleccion">
-            <a href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon" class="icon icon-tabler icon-tabler-truck-delivery" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <circle cx="7" cy="17" r="2" />
-                    <circle cx="17" cy="17" r="2" />
-                    <path d="M5 17h-2v-4m-1 -8h11v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" />
-                    <line x1="3" y1="9" x2="7" y2="9" />
-                </svg>
-                <h3>Pedidos</h3>
-            </a>
-        </div>
 
         <div class="seleccion">
-            <a href="#">
+            <a href="historial.php">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon"  class="icon icon-tabler icon-tabler-report" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697" />
