@@ -15,6 +15,7 @@ if (isset($_POST['submit'])) {
 	if ($result->num_rows > 0) {
 		$row = mysqli_fetch_assoc($result);
 		$_SESSION['username'] = $row['username'];
+			$_SESSION['id_usuario'] = $row['id_usuario'];
 		//$tipousuario = $result[4]; 
 		$_SESSION['id_tipo_usuario'] = $row['id_tipo_usuario'];
 
